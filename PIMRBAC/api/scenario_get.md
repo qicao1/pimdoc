@@ -1,12 +1,12 @@
-# Get provider
+# Get scenario
 
-Retrieve the properties and relationships of provider object.
+Retrieve the properties and relationships of a scenario object.
 ### Prerequisites
 The following **scopes** are required to execute this API: 
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /providers/<id>
+GET /scenarios/<id>
 ```
 ### Optional query parameters
 This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
@@ -20,7 +20,7 @@ This method supports the [OData Query Parameters](http://graph.microsoft.io/docs
 ### Request body
 Do not supply a request body for this method.
 ### Response
-If successful, this method returns a `200 OK` response code and [provider](../resources/provider.md) object in the response body.
+If successful, this method returns a `200 OK` response code and [scenario](../resources/scenario.md) object in the response body.
 ### Example
 ##### Request
 Here is an example of the request.
@@ -29,7 +29,7 @@ Here is an example of the request.
   "name": "get_provider"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/providers('00000000-0000-0000-0000-000000000002')/providers/<id>
+GET https://graph.microsoft.com/beta/scenarios('pimforrbac')
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

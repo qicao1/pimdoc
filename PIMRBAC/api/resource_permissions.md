@@ -6,7 +6,7 @@ The following **scopes** are required to execute this API:
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /providers/<id>/resources('<id>')/permissions
+GET /scenarios('<id>')/resources('<id>')/permissions
 ```
 ### Request headers
 | Name       | Description|
@@ -28,7 +28,7 @@ Here is an example of the request.
   "name": "resource_permissions"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/providers('00000000-0000-0000-0000-000000000002')/resources('05a02078-aa1f-482a-8afa-ce1620d03099')/permissions
+GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/resources('05a02078-aa1f-482a-8afa-ce1620d03099')/permissions
 ```
 
 ##### Response

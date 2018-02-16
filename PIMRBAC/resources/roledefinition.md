@@ -1,27 +1,31 @@
-# roleDefinition resource type
+# `roleDefinition` 
+Represents the role definitions. 
 
-Represents the role definition. For Azure RBAC provider, the role definition can be Owner, Reader, Contributor, etc.
+For `pimforrbac` scenario, the roleDefinition can represent Azure RBAC roles, such as Owner, Reader, Contributor, etc.
 
 
 ### Methods
 
-| Method		   | Return Type	|Description|
-|:---------------|:--------|:----------|
-|[List roleDefinitions](../api/roledefinition_list.md) | [roleDefinition](roledefinition.md) |Get roleDefinition collection.|
-|[Get roleDefinition](../api/roledefinition_get.md) | [roleDefinition](roledefinition.md) |Read properties and relationships of roleDefinition object.|
-|[Create roleDefinition](../api/resource_post_roledefinitions.md) |[roleDefinition](roledefinition.md)| Create a new roleDefinition by posting to the roleDefinitions collection.|
+| Method		  |Input parameters | Return Type	|Description|
+|:---------------|:--------|:--------|:----------|
+|[List roleDefinitions](../api/roledefinition_list.md) | None | [roleDefinition](roledefinition.md) |Get roleDefinition collection.|
+|[Get roleDefinition](../api/roledefinition_get.md) | `id` | [roleDefinition](roledefinition.md) |Read properties and relationships of roleDefinition object.|
+
+<!--
+|[Create roleDefinition](../api/resource_post_roledefinitions.md) |  |[roleDefinition](roledefinition.md)| Create a new roleDefinition by posting to the roleDefinitions collection.|
+-->
 
 
 ### Properties
-| Property	   | Type	|Description|
-|:---------------|:--------|:----------|
-|activationRequiredCount|Int32|The number of eligible role assignments associated with the role definition.|
-|assignedCount|Int32|The number of member role assignments associated with the role definition.|
-|displayName|String|The role definition display name.|
-|id|String| The id of the role definition. Read-only.|
-|ruleSettings|[rulesetting](rulesetting.md) collection|The rule settings for the role definition.|
-|subjectCount|Int32|The number of subjects that are assigned with the role.|
-|templateId|String|The role definition template id that is managed by the resource provider.|
+| Property	   | Type	| Key | Nullable |  Description|
+|:---------------|:--------|:----------|:--------|:----------|
+|id|String| ✓ | No| The id of the role definition. Read-only.|
+|templateId|String|   | Yes|The role definition template id that is managed by the resource provider.|
+|displayName|String|   | Yes|The role definition display name.|
+|subjectCount|Int32|   | Yes|The number of subjects that are assigned with the role.|
+|activationRequiredCount|Int32|  | Yes|The number of eligible role assignments associated with the role definition.|
+|assignedCount|Int32|   | Yes|The number of member role assignments associated with the role definition.|
+
 
 ### Relationships
 | Relationship | Type	|Description|
@@ -42,13 +46,13 @@ Here is a JSON representation of the resource.
 
 ```json
 {
+  "id": "String",
+  "templateId": "String",
+  "displayName": "String",
   "activationRequiredCount": 1024,
   "assignedCount": 1024,
-  "displayName": "String",
-  "id": "String (identifier)",
-  "ruleSettings": [{"@odata.type": "microsoft.graph.rulesetting"}],
   "subjectCount": 1024,
-  "templateId": "String"
+
 }
 
 ```
@@ -62,3 +66,20 @@ Here is a JSON representation of the resource.
   "section": "documentation",
   "tocPath": ""
 }-->
+
+### XML representation
+
+```xml
+      <EntityType Name="roleDefinition">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="templateId" Type="Edm.String" />
+        <Property Name="displayName" Type="Edm.String" />
+        <Property Name="subjectCount" Type="Edm.Int32" />
+        <Property Name="activationRequiredCount" Type="Edm.Int32" />
+        <Property Name="assignedCount" Type="Edm.Int32" />
+        <NavigationProperty Name="resource" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.resource" ContainsTarget="true" />
+      </EntityType>
+```

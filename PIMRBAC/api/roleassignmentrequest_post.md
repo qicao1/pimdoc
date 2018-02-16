@@ -6,7 +6,7 @@ The following **scopes** are required to execute this API:
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /providers/<id>/roleAssignmentRequests
+POST /scenarios('<id>')/roleAssignmentRequests
 ```
 ### Request headers
 | Name       | Description|
@@ -29,7 +29,7 @@ Here is an example of the request that a user tries to activate his eligible rol
   "name": "create_roleassignmentrequest_from_roleassignmentrequests"
 }-->
 ```http
-POST https://graph.microsoft.com/beta/providers('00000000-0000-0000-0000-000000000002')/roleAssignmentRequests
+POST https://graph.microsoft.com/beta/scenarios('pimforrbac')/roleAssignmentRequests
 Content-type: application/json
 Content-length: 206
 

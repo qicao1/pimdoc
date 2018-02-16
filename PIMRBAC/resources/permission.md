@@ -1,5 +1,5 @@
-# permission resource type
-The permissions that the requestor has for the specific resource.
+# `permission` type
+Represents the access permission that a `subject` has to a specific `resource`.  
 
 
 

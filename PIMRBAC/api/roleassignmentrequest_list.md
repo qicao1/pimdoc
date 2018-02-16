@@ -1,12 +1,12 @@
 # List roleAssignmentRequests
 
-Retrieve a list of roleassignmentrequest objects.
+Retrieve a list of roleaAssignmentRequest objects.
 ### Prerequisites
 The following **scopes** are required to execute this API: 
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /providers/<id>/roleAssignmentRequests
+GET /scenarios('<id>')/roleAssignmentRequests
 ```
 ### Optional query parameters
 This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
@@ -29,7 +29,7 @@ Here is an example of the request to query all the pending role assignment reque
   "name": "get_roleassignmentrequests"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/providers('00000000-0000-0000-0000-000000000002')/roleAssignmentRequests?$expand=subject,roleDefinition($expand=resource)&$filter=(status+eq+%27Accepted%27+or+status+eq+%27PendingEvaluation%27+or+status+eq+%27Granted%27+or+status+eq+%27PendingProvisioning%27)+and+(roleDefinition/resource/id+eq+%27bc6f10e6-6dd9-4393-853e-09e13c036b17%27)
+GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/roleAssignmentRequests?$expand=subject,roleDefinition($expand=resource)&$filter=(status+eq+'Accepted'+or+status+eq+'PendingEvaluation'+or+status+eq+'Granted'+or+status+eq+'PendingProvisioning')+and+(roleDefinition/resource/id+eq+'bc6f10e6-6dd9-4393-853e-09e13c036b17')
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -45,7 +45,7 @@ Content-type: application/json
 Content-length: 279
 
 {
-    "@odata.context": "https://api.azrbac.mspim.azure.com/api/v1/$metadata#roleAssignmentRequests",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleAssignmentRequests",
     "value": [
         {
             "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17_7fd64851-3279-459b-b614-e2b2ba760f5b_7c53453e-d5a4-41e0-8eb1-32d5ec8bfdee",
@@ -79,7 +79,7 @@ Content-length: 279
             },
             "targetLinkedRoleAssignmentId": null,
             "evaluateOnly": false,
-            "subject@odata.context": "https://api.azrbac.mspim.azure.com/api/v1/$metadata#roleAssignmentRequests('bc6f10e6-6dd9-4393-853e-09e13c036b17_7fd64851-3279-459b-b614-e2b2ba760f5b_7c53453e-d5a4-41e0-8eb1-32d5ec8bfdee')/subject/$entity",
+            "subject@odata.context": "https://graph.microsoft.com/beta/$metadata#roleAssignmentRequests('bc6f10e6-6dd9-4393-853e-09e13c036b17_7fd64851-3279-459b-b614-e2b2ba760f5b_7c53453e-d5a4-41e0-8eb1-32d5ec8bfdee')/subject/$entity",
             "subject": {
                 "id": "795ed4a8-e4e5-48f5-b60c-ee9845a7a793",
                 "displayName": "alpha",
@@ -87,7 +87,7 @@ Content-length: 279
                 "principalName": "alpha@microsoft.com",
                 "email": "alpha@microsoft.com"
             },
-            "roleDefinition@odata.context": "https://api.azrbac.mspim.azure.com/api/v1/$metadata#roleAssignmentRequests('bc6f10e6-6dd9-4393-853e-09e13c036b17_7fd64851-3279-459b-b614-e2b2ba760f5b_7c53453e-d5a4-41e0-8eb1-32d5ec8bfdee')/roleDefinition/$entity",
+            "roleDefinition@odata.context": "https://graph.microsoft.com/beta/$metadata#roleAssignmentRequests('bc6f10e6-6dd9-4393-853e-09e13c036b17_7fd64851-3279-459b-b614-e2b2ba760f5b_7c53453e-d5a4-41e0-8eb1-32d5ec8bfdee')/roleDefinition/$entity",
             "roleDefinition": {
                 "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17_7fd64851-3279-459b-b614-e2b2ba760f5b",
                 "templateId": "7fd64851-3279-459b-b614-e2b2ba760f5b",
@@ -96,7 +96,7 @@ Content-length: 279
                 "activationRequiredCount": 0,
                 "assignedCount": 0,
                 "ruleSettings": [],
-                "resource@odata.context": "https://api.azrbac.mspim.azure.com/api/v1/$metadata#roleAssignmentRequests('bc6f10e6-6dd9-4393-853e-09e13c036b17_7fd64851-3279-459b-b614-e2b2ba760f5b_7c53453e-d5a4-41e0-8eb1-32d5ec8bfdee')/roleDefinition/resource/$entity",
+                "resource@odata.context": "https://graph.microsoft.com/beta/$metadata#roleAssignmentRequests('bc6f10e6-6dd9-4393-853e-09e13c036b17_7fd64851-3279-459b-b614-e2b2ba760f5b_7c53453e-d5a4-41e0-8eb1-32d5ec8bfdee')/roleDefinition/resource/$entity",
                 "resource": {
                     "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17",
                     "originalId": "/subscriptions/b3797212-a671-4ab5-b866-d71fd4159334",

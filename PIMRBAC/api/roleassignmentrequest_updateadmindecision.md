@@ -1,13 +1,13 @@
-# Cancel roleAssignmentRequest
+# roleAssignmentRequest: UpdateAdminDecision
 
-Cancel a pending role assignment request.
+Administrators approve or deny a request for extending expiring roles and renewing expired roles.
 
 ### Prerequisites
 The following **scopes** are required to execute this API: 
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /scenarios('<id>')/roleAssignmentRequests('<id>')/cancel
+POST /scenarios('<id>')/roleAssignmentRequests('<id>')/updateAdmindecision
 ```
 ### Request headers
 | Name       | Description|
@@ -18,7 +18,7 @@ POST /scenarios('<id>')/roleAssignmentRequests('<id>')/cancel
 ### Request body
 
 ### Response
-If successful, this method returns `200 OK` response code. It does not return anything in the response body.
+If successful, this method returns `200, OK` response code. It does not return anything in the response body.
 
 ### Example
 Here is an example of how to call this API.
@@ -29,7 +29,7 @@ Here is an example of the request.
   "name": "roleassignmentrequest_cancel"
 }-->
 ```http
-POST https://graph.microsoft.com/beta/scenarios('pimforrbac')/roleAssignmentRequests('bc6f10e6-6dd9-4393-853e-09e13c036b17_7fd64851-3279-459b-b614-e2b2ba760f5b_7c53453e-d5a4-41e0-8eb1-32d5ec8bfdee')/cancel
+POST https://graph.microsoft.com/beta/scenarios('pimforrbac')/roleAssignmentRequests('bc6f10e6-6dd9-4393-853e-09e13c036b17_7fd64851-3279-459b-b614-e2b2ba760f5b_7c53453e-d5a4-41e0-8eb1-32d5ec8bfdee')/updateAdminDecision
 ```
 
 ##### Response
