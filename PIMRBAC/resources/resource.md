@@ -30,10 +30,13 @@ Represents resources that could be managed by Privileged Identity Management (PI
 ### Relationships
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
-|alerts|[alert](alert.md) collection| The security alerts that are associated with the resource. Read-only. Nullable.|
 |roleAssignments|[roleAssignment](roleassignment.md) collection| The collection of role assignments for the resource. Read-only. Nullable.|
 |roleDefinitions|[roleDefinition](roledefinition.md) collection| The collection of role defintions for the resource. Read-only. Nullable.|
 |parent|[resource](resource.md) collection| The parent resource. Read-only. Nullable.|
+
+<!--
+|alerts|[alert](alert.md) collection| The security alerts that are associated with the resource. Read-only. Nullable.|
+-->
 
 ### JSON representation
 
@@ -66,7 +69,9 @@ Here is a JSON representation of the resource.
         <Property Name="roleAssignmentCount" Type="Edm.Int32" />
         <NavigationProperty Name="roleDefinitions" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleDefinition)" ContainsTarget="true" />
         <NavigationProperty Name="roleAssignments" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleAssignment)" ContainsTarget="true" />
-        <NavigationProperty Name="alerts" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.alert)" ContainsTarget="true" />
         <NavigationProperty Name="parent" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.resource)" ContainsTarget="true" />
       </EntityType>
 ```
+<!--
+        <NavigationProperty Name="alerts" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.alert)" ContainsTarget="true" />
+-->

@@ -10,7 +10,10 @@ For `pimforrbac` scenario, the roleDefinition can represent Azure RBAC roles, su
 |:---------------|:--------|:--------|:----------|
 |[List roleDefinitions](../api/roledefinition_list.md) | None | [roleDefinition](roledefinition.md) |Get roleDefinition collection.|
 |[Get roleDefinition](../api/roledefinition_get.md) | `id` | [roleDefinition](roledefinition.md) |Read properties and relationships of roleDefinition object.|
+
+<!--
 |[Create roleDefinition](../api/resource_post_roledefinitions.md) |  |[roleDefinition](roledefinition.md)| Create a new roleDefinition by posting to the roleDefinitions collection.|
+-->
 
 
 ### Properties

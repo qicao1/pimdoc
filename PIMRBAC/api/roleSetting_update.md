@@ -18,16 +18,16 @@ In the request body, supply the values for relevant fields that should be update
 
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|adminEligibleSettings|rulesetting||
-|adminMemberSettings|rulesetting||
+|adminEligibleSettings|[ruleSetting](../resources/ruleSetting.md)|The rule settings that are evaluated when an administrator tries to add an eligible role assignment.|
+|adminMemberSettings|[ruleSetting](../resources/ruleSetting.md)|The rule settings that are evaluated when an administrator tries to add a direct member role assignment.|
 |default|Boolean||
 |lastUpdated|DateTimeOffset||
 |lastUpdatedBy|String||
-|userEligibleSettings|rulesetting||
-|userMemberSettings|rulesetting||
+|userEligibleSettings|[ruleSetting](../resources/ruleSetting.md)|The rule settings that are evaluated when a user tries to add an eligible role assignment. This is not used for `pimforrbac` scenario.|
+|userMemberSettings|[ruleSetting](../resources/ruleSetting.md)|The rule settings that are evaluated when a user tries to activate his role assignment.|
 
 ### Response
-If successful, this method returns a `200 OK` response code and updated [roleSetting](../resources/roleSetting.md) object in the response body.
+If successful, this method returns a `204 No Cotent` response code.
 ### Example
 ##### Request
 Here is an example of the request.
@@ -41,61 +41,12 @@ Content-type: application/json
 Content-length: 350
 
 {
-  "default": true,
-  "lastUpdated": "datetime-value",
-  "lastUpdatedBy": "lastUpdatedBy-value",
-  "adminEligibleSettings": [
-    {
-      "ruleIdentifier": "ruleIdentifier-value",
-      "setting": "setting-value"
-    }
-  ],
-  "adminMemberSettings": [
-    {
-      "ruleIdentifier": "ruleIdentifier-value",
-      "setting": "setting-value"
-    }
-  ]
+  "id":"e5e7d29d-5465-45ac-885f-4716a5ee74b5_625c9904-2028-474e-946f-4d7f5b04d24c_5fb5aef8-1081-4b8e-bb16-9d5d0385bab5",
+  "adminEligibleSettings":[{"ruleIdentifier":"ExpirationRule","setting":"{\"permanentAssignment\":false,\"maximumGrantPeriodInMinutes\":129600}"}],
+  "adminMemberSettings":[{"ruleIdentifier":"ExpirationRule","setting":"{\"permanentAssignment\":false,\"maximumGrantPeriodInMinutes\":43200}"},{"ruleIdentifier":"MfaRule","setting":"{\"mfaRequired\":false}"},{"ruleIdentifier":"JustificationRule","setting":"{\"required\":true}"}],
+  "userEligibleSettings":[],
+  "userMemberSettings":[{"ruleIdentifier":"ExpirationRule","setting":"{\"permanentAssignment\":false,\"maximumGrantPeriodInMinutes\":540}"},{"ruleIdentifier":"MfaRule","setting":"{\"mfaRequired\":false}"},{"ruleIdentifier":"JustificationRule","setting":"{\"required\":true}"},{"ruleIdentifier":"ApprovalRule","setting":"{\"enabled\":false,\"approvers\":[{\"id\":\"b080efb4-4720-4eca-b103-d507259069e0\",\"displayName\":\"Sankara Srinivas\",\"type\":\"User\",\"email\":\"v-savelp@fimdev.net\"}]}"}]
 }
 ```
 ##### Response
-Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.policy"
-} -->
-```http
-HTTP/1.1 200 OK
-Content-type: application/json
-Content-length: 370
-
-{
-  "id": "id-value",
-  "default": true,
-  "lastUpdated": "datetime-value",
-  "lastUpdatedBy": "lastUpdatedBy-value",
-  "adminEligibleSettings": [
-    {
-      "ruleIdentifier": "ruleIdentifier-value",
-      "setting": "setting-value"
-    }
-  ],
-  "adminMemberSettings": [
-    {
-      "ruleIdentifier": "ruleIdentifier-value",
-      "setting": "setting-value"
-    }
-  ]
-}
-```
-
-<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
-2015-10-25 14:57:30 UTC -->
-<!-- {
-  "type": "#page.annotation",
-  "description": "Update policy",
-  "keywords": "",
-  "section": "documentation",
-  "tocPath": ""
-}-->
+None.

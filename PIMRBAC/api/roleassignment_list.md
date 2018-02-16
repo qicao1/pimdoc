@@ -29,7 +29,7 @@ Here is an example of the request, which queries all role assignments for a give
   "name": "get_roleassignments"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/roleAssignments?$expand=linkedAssignment,subject,roleDefinition($expand=resource)&$filter=(roleDefinition/resource/id%20eq%20%27bc6f10e6-6dd9-4393-853e-09e13c036b17%27)+and+(subject/id%20eq%20%27795ed4a8-e4e5-48f5-b60c-ee9845a7a791%27) 
+GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/roleAssignments?$expand=linkedAssignment,subject,roleDefinition($expand=resource)&$filter=(roleDefinition/resource/id+eq+('bc6f10e6-6dd9-4393-853e-09e13c036b17')+and+(subject/id+eq+'795ed4a8-e4e5-48f5-b60c-ee9845a7a791') 
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -45,7 +45,7 @@ Content-type: application/json
 Content-length: 2335
 
 {
-    "@odata.context": "https://api.azrbac.mspim.azure.com/api/v1/$metadata#roleAssignments",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleAssignments",
     "value": [
         {
             "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17_d3881f73-407a-4167-8283-e981cbba0404_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_f4269ff2-542b-4b3a-b021-294a51760006",
@@ -64,7 +64,7 @@ Content-length: 2335
                 "principalName": "alpha@ntdev.contoso.com",
                 "email": "alpha@contoso.com"
             },
-            "roleDefinition@odata.context": "https://api.azrbac.mspim.azure.com/api/v1/$metadata#roleAssignments('bc6f10e6-6dd9-4393-853e-09e13c036b17_d3881f73-407a-4167-8283-e981cbba0404_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_f4269ff2-542b-4b3a-b021-294a51760006')/roleDefinition/$entity",
+            "roleDefinition@odata.context": "https://graph.microsoft.com/beta/$metadata#roleAssignments('bc6f10e6-6dd9-4393-853e-09e13c036b17_d3881f73-407a-4167-8283-e981cbba0404_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_f4269ff2-542b-4b3a-b021-294a51760006')/roleDefinition/$entity",
             "roleDefinition": {
                 "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17_d3881f73-407a-4167-8283-e981cbba0404",
                 "templateId": "d3881f73-407a-4167-8283-e981cbba0404",
@@ -73,7 +73,7 @@ Content-length: 2335
                 "activationRequiredCount": 0,
                 "assignedCount": 0,
                 "ruleSettings": [],
-                "resource@odata.context": "https://api.azrbac.mspim.azure.com/api/v1/$metadata#roleAssignments('bc6f10e6-6dd9-4393-853e-09e13c036b17_d3881f73-407a-4167-8283-e981cbba0404_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_f4269ff2-542b-4b3a-b021-294a51760006')/roleDefinition/resource/$entity",
+                "resource@odata.context": "https://graph.microsoft.com/beta/$metadata#roleAssignments('bc6f10e6-6dd9-4393-853e-09e13c036b17_d3881f73-407a-4167-8283-e981cbba0404_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_f4269ff2-542b-4b3a-b021-294a51760006')/roleDefinition/resource/$entity",
                 "resource": {
                     "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17",
                     "originalId": "/subscriptions/b3797212-a671-4ab5-b866-d71fd4159331",
@@ -94,7 +94,7 @@ Content-length: 2335
             "level": "Member",
             "assignmentType": "Group",
             "linkedAssignment": null,
-            "subject@odata.context": "https://api.azrbac.mspim.azure.com/api/v1/$metadata#roleAssignments('bc6f10e6-6dd9-4393-853e-09e13c036b17_8e3af657-a8ff-443c-a75c-2fe8c4bcb635_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_00000000-0000-0000-0000-000000000000')/subject/$entity",
+            "subject@odata.context": "https://graph.microsoft.com/beta/$metadata#roleAssignments('bc6f10e6-6dd9-4393-853e-09e13c036b17_8e3af657-a8ff-443c-a75c-2fe8c4bcb635_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_00000000-0000-0000-0000-000000000000')/subject/$entity",
             "subject": {
                 "id": "795ed4a8-e4e5-48f5-b60c-ee9845a7a790",
                 "displayName": "alpha",
@@ -102,7 +102,7 @@ Content-length: 2335
                 "principalName": "alpha@ntdev.contoso.com",
                 "email": "alpha@contoso.com"
             },
-            "roleDefinition@odata.context": "https://api.azrbac.mspim.azure.com/api/v1/$metadata#roleAssignments('bc6f10e6-6dd9-4393-853e-09e13c036b17_8e3af657-a8ff-443c-a75c-2fe8c4bcb635_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_00000000-0000-0000-0000-000000000000')/roleDefinition/$entity",
+            "roleDefinition@odata.context": "https://graph.microsoft.com/beta/$metadata#roleAssignments('bc6f10e6-6dd9-4393-853e-09e13c036b17_8e3af657-a8ff-443c-a75c-2fe8c4bcb635_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_00000000-0000-0000-0000-000000000000')/roleDefinition/$entity",
             "roleDefinition": {
                 "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17_8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
                 "templateId": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
@@ -111,7 +111,7 @@ Content-length: 2335
                 "activationRequiredCount": 0,
                 "assignedCount": 0,
                 "ruleSettings": [],
-                "resource@odata.context": "https://api.azrbac.mspim.azure.com/api/v1/$metadata#roleAssignments('bc6f10e6-6dd9-4393-853e-09e13c036b17_8e3af657-a8ff-443c-a75c-2fe8c4bcb635_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_00000000-0000-0000-0000-000000000000')/roleDefinition/resource/$entity",
+                "resource@odata.context": "https://graph.microsoft.com/beta/$metadata#roleAssignments('bc6f10e6-6dd9-4393-853e-09e13c036b17_8e3af657-a8ff-443c-a75c-2fe8c4bcb635_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_00000000-0000-0000-0000-000000000000')/roleDefinition/resource/$entity",
                 "resource": {
                     "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17",
                     "originalId": "/subscriptions/b3797212-a671-4ab5-b866-d71fd4159331",

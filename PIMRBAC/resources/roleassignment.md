@@ -7,7 +7,7 @@ Represents the assignment of a role to a user or group.
 |:---------------|:--------|:--------|:----------|
 |[List roleAssignments](../api/roleassignment_list.md) | None | [roleAssignment](roleassignment.md) |List roleAssignment collection.|
 |[Get roleAssignment](../api/roleassignment_get.md) | `id` | [roleAssignment](roleassignment.md) |Read properties and relationships of roleAssignment object.|
-|[Export roleAssignment](../api/roleassignment_export.md) | | HttpResponseMessage |Download a list of role assignments and save as a `.csv` file.|
+|[Export roleAssignment](../api/roleassignment_export.md) | None | octet-stream |Download a list of role assignments and save as a `.csv` file.|
 
 ### Properties
 | Property	   | Type	| Key | Nullable |  Description|
@@ -18,7 +18,7 @@ Represents the assignment of a role to a user or group.
 |startDateTime|DateTimeOffset|  | Yes|The start time of the role assignment. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
 |expirationDateTime|DateTimeOffset|  | Yes|For a non-permanent role assignment, this is the time when the role assignment will be expired. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
 |assignmentType|String|  | Yes|The type of the assignment. The value can be ``Eligible`` - if it is a *Just in time*  assignment; or ``Member`` - if it is a *direct* assignment or activated from an eligible one.|
-|membershipType|String| | Yes|Represents the type of membership for the role assignment. The value can be ``Inherited`` - it is inherited from a parent resource scope, ``Group`` - it is not inherited but comes from the membership of a group assignment, or ``User`` - it is not inherited nor from a group assignment.|
+|membershipType|String| | Yes|Represents the type of membership. The value can be ``Inherited`` - it is inherited from a parent resource scope, ``Group`` - it is not inherited but comes from the membership of a group assignment, or ``User`` - it is not inherited nor from a group assignment.|
 
 ### Relationships
 | Relationship | Type	|Description|
@@ -74,7 +74,7 @@ Here is a JSON representation of the resource.
         <Property Name="isPermanent" Type="Edm.Boolean" />
         <Property Name="expirationDateTime" Type="Edm.DateTimeOffset" />
         <Property Name="startDateTime" Type="Edm.DateTimeOffset" />
-        <Property Name="assignmentLevel" Type="Edm.String" />
+        <Property Name="membershipType" Type="Edm.String" />
         <Property Name="assignmentType" Type="Edm.String" />
         <NavigationProperty Name="roleDefinition" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleDefinition" ContainsTarget="true" />
         <NavigationProperty Name="subject" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.subject" ContainsTarget="true" />

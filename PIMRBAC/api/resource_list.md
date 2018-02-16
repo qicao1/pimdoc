@@ -29,7 +29,7 @@ Here is an example of the request.
   "name": "get_resources"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/resources?$orderby=displayName&$filter=((parent/id%20eq%20%279ef79d21-f590-43c7-80e4-3c6d6699b8db%27)%20and%20(resourceType%20ne%20%27subscription%27%20and%20resourceType%20ne%20%27resourcegroup%27))
+GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/resources?$orderby=displayName&$filter=((parent/id+eq+'9ef79d21-f590-43c7-80e4-3c6d6699b8db')+and+(resourceType+ne+'subscription'+and+resourceType+ne+'resourcegroup'))
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

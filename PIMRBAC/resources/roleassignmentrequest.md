@@ -1,9 +1,8 @@
 # `roleAssignmentRequest`
 Represents the request of role assignment operations. The request can be about:
 * creating a new `roleAssignment`: users activate a role or administrators assigns a role to a user or group;
-* updating a `roleAssignment`: such as administrators want to change start and end time for existing assignments;
-* extending an expiring `roleAssignment`;
-* renewing an expired `roleAssignment`;
+* removing a `roleAssignment`;
+* updating a `roleAssignment`: such as administrators want to change start and end time for existing assignments; extending an expiring `roleAssignment`; renewing an expired `roleAssignment`;
 
 ### Methods
 

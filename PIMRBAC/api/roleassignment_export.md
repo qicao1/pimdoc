@@ -1,6 +1,6 @@
 # Export roleAssignments
 
-Download a list of roleAssignment objects and save to a `.csv` file.
+Download a list of roleAssignment objects and save as a `.csv` file.
 ### Prerequisites
 The following **scopes** are required to execute this API: 
 ### HTTP request
@@ -29,10 +29,10 @@ Here is an example of the request, which queries all role assignments for a give
   "name": "get_roleassignments"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/roleAssignments/export?$expand=subject,roleDefinition($expand=resource)&$filter=(roleDefinition/resource/id%20eq%20%2785dfe48a-55d3-49fc-8f36-ee14b7f6f720%27)+and+(roleDefinition/id%20eq%20%2785dfe48a-55d3-49fc-8f36-ee14b7f6f720_a48d7796-14b4-4889-afef-fbb65a93e5a2%27)
+GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/roleAssignments/export?$expand=subject,roleDefinition($expand=resource)&$filter=(roleDefinition/resource/id+eq+'85dfe48a-55d3-49fc-8f36-ee14b7f6f720')+and+(roleDefinition/id+eq+'85dfe48a-55d3-49fc-8f36-ee14b7f6f720_a48d7796-14b4-4889-afef-fbb65a93e5a2')
 ```
 ##### Response
-Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+Here is an example of the response. 
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -44,7 +44,7 @@ HTTP/1.1 200 OK
 Content-Type:application/octet-stream
 Content-Length:126
 
-77u/77u/QXNzaWdubWVudCBMZXZlbCxVc2VyIEdyb3VwIE5hbWUsUm9sZSBOYW1lLEVtYWlsLEFzc2lnbm1lbnQgVHlwZSxBc3NpZ25tZW50IFN0YXJ0IFRpbWUgKFVUQyksQXNzaWdubWVudCBFbmQgVGltZdAoVVRDKQ0K
+77u/77u/QXNzaWdubWVudCBMZXZlbCxVc2VyIEdyb3VwIE5hbWUsUm9sZSBOYW1lLEVtYWlsLEFzc2lnbm1lbnQgVHlwZSxBc3NpZ25tZW43IFN0YXJ0IFRpbWUgKFVUQyksQXNzaWdubWVudCBFbmQgVGltZdAoVVRDKQ0K
 
 ```
 

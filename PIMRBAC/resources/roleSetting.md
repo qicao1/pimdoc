@@ -9,7 +9,7 @@ Represents the prerequisites that will be checked when an administrator tries to
 |:---------------|:--------|:--------|:----------|
 |[List roleSetting](../api/roleSetting_list.md) | None | [roleSetting](roleSetting.md) collection|List roleSetting objects.|
 |[Get roleSetting](../api/roleSetting_get.md) | `id` | [roleSetting](roleSetting.md) |Read properties and relationships of roleSetting object.|
-|[Update](../api/roleSetting_update.md) | `id` | [roleSetting](roleSetting.md)	|Update roleSetting object. |
+|[Update roleSetting](../api/roleSetting_update.md) | `id` | [roleSetting](roleSetting.md)	|Update roleSetting object. |
 
 ### Properties
 | Property	   | Type	| Key | Nullable |  Description|
@@ -20,7 +20,7 @@ Represents the prerequisites that will be checked when an administrator tries to
 |lastUpdatedBy|String|  | Yes|The display name of the administrator who updated the roleSetting.|
 |adminEligibleSettings|[ruleSetting](ruleSetting.md) collection|  | Yes|The rule settings that are evaluated when an administrator tries to add an eligible role assignment.|
 |adminMemberSettings|[ruleSetting](ruleSetting.md) collection|  | Yes|The rule settings that are evaluated when an administrator tries to add a direct member role assignment.|
-|userEligibleSettings|[ruleSetting](ruleSetting.md) collection|  | Yes|The rule settings that are evaluated when a user tries to add an eligible role assignment. This is not used for Azure RBAC provider.|
+|userEligibleSettings|[ruleSetting](ruleSetting.md) collection|  | Yes|The rule settings that are evaluated when a user tries to add an eligible role assignment. This is not used for `pimforrbac` scenario.|
 |userMemberSettings|[ruleSetting](ruleSetting.md) collection|  | Yes|The rule settings that are evaluated when a user tries to activate his role assignment.|
 
 ### Relationships
