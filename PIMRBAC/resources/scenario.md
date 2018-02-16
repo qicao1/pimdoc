@@ -4,13 +4,14 @@ Represents scenarios supported by Privileged Identity Management (PIM), and each
 
 _Note: this version only supports Azure RBAC roles management, thus `pimforrbac` is the only available scenario._
 
+<!--
 ### Methods
 
 | Method		  |Input parameters | Return Type	|Description|
 |:---------------|:--------|:--------|:----------|
 |[Get scenario](../api/scenario_get.md)| `id` | [scenario](scenario.md) |Read properties and relationships of the scenario object specified by id.|
 |[List scenarios](../api/scenario_list.md)| None| [scenario](scenario.md) collection |Read properties and relationships of a list of scenario objects.|
-
+-->
 
 ### Properties
 | Property	   | Type	| Key | Nullable |  Description|

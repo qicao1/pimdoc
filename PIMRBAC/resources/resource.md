@@ -10,10 +10,11 @@ Represents resources that could be managed by Privileged Identity Management (PI
 |:---------------|:--------|:--------|:----------|
 |[List resources](../api/resource_list.md) | None | [resource](resource.md) |List resource collection.|
 |[Get resource](../api/resource_get.md) | `id` | [resource](resource.md) |Read properties and relationships of a resource object specified by id.|
-|[Create](../api/resource_update.md) | | [resource](resource.md)	|Create resource object. For Azure RBAC scenario, creating resource is not allowed.|
 |[List roleAssignments](../api/resource_list_roleassignments.md) |`id` |[roleAssignment](roleassignment.md) collection| Get a roleAssignment object collection for the given resource.|
 |[List roleDefinitions](../api/resource_list_roledefinitions.md) |`id` |[roleDefinition](roledefinition.md) collection| Get a roleDefinition object collection for the given resource.|
 |[Permissions](../api/resource_permissions.md)|`id` |[permission](permission.md) collection|Get a permission object collection for the given resource and requestor.|
+
+<!--|[Create](../api/resource_update.md) | | [resource](resource.md)	|Create resource object. For Azure RBAC scenario, creating resource is not allowed.| -->
 
 ### Properties
 | Property	   | Type	| Key | Nullable |  Description|
@@ -38,14 +39,6 @@ Represents resources that could be managed by Privileged Identity Management (PI
 
 Here is a JSON representation of the resource.
 
-<!-- {
-  "blockType": "resource",
-  "optionalProperties": [
-
-  ],
-  "@odata.type": "microsoft.graph.resource"
-}-->
-
 ```json
 {
   "id": "String",
@@ -57,16 +50,6 @@ Here is a JSON representation of the resource.
 }
 
 ```
-
-<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
-2015-10-25 14:57:30 UTC -->
-<!-- {
-  "type": "#page.annotation",
-  "description": "resource resource",
-  "keywords": "",
-  "section": "documentation",
-  "tocPath": ""
-}-->
 
 ### JSON representation
 ```xml

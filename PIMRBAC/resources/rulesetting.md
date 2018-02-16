@@ -1,6 +1,6 @@
-# `rulesetting` type
+# `ruleSetting`
 
-The rule setting for role assignment operation.
+The rule setting for role assignment operation. It is the type of each rule to evaluate role assignments.
 
 
 ### Properties
@@ -18,7 +18,7 @@ Here is a JSON representation of the resource.
   "optionalProperties": [
 
   ],
-  "@odata.type": "microsoft.graph.rulesetting"
+  "@odata.type": "microsoft.graph.ruleSetting"
 }-->
 
 ```json
@@ -33,7 +33,7 @@ Here is a JSON representation of the resource.
 2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
-  "description": "rulesetting resource",
+  "description": "ruleSetting resource",
   "keywords": "",
   "section": "documentation",
   "tocPath": ""
