@@ -6,7 +6,7 @@ The following **scopes** are required to execute this API:
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /providers/<id>/roleDefinitions/<id>
+GET /scenarios('<id>')/roleDefinitions('<id>')
 ```
 ### Optional query parameters
 This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
@@ -29,7 +29,7 @@ Here is an example of the request.
   "name": "get_roledefinition"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/providers('00000000-0000-0000-0000-000000000002')/roleDefinitions/<id>
+GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/roleDefinitions('85dfe48a-55d3-49fc-8f36-ee14b7f6f720_21d96096-b162-414a-8302-d8354f9d91b2')
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -44,12 +44,13 @@ Content-type: application/json
 Content-length: 174
 
 {
-  "id": "id-value",
-  "templateId": "templateId-value",
-  "displayName": "displayName-value",
-  "subjectCount": 99,
-  "activationRequiredCount": 99,
-  "assignedCount": 99
+  "@odata.context":"https://api.azrbac.mspim.azure.com/api/v1/$metadata#roleDefinitions/$entity",
+  "id":"85dfe48a-55d3-49fc-8f36-ee14b7f6f720_21d96096-b162-414a-8302-d8354f9d91b2",
+  "templateId":"21d96096-b162-414a-8302-d8354f9d91b2",
+  "displayName":"Azure Service Deploy Release Management Contributor",
+  "subjectCount":0,
+  "activationRequiredCount":0,
+  "assignedCount":0
 }
 ```
 

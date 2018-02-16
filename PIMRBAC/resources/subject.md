@@ -1,15 +1,15 @@
-# subject resource type
-The user/group subject.
+# `subject` type
+Represents users, groups, and service principals being managed in Privileged Identity Management (PIM).
 
 
 ### Properties
-| Property	   | Type	|Description|
-|:---------------|:--------|:----------|
-|displayName|String|Subject display name.|
-|email|String|The subject's email.|
-|id|String| The subject id. Read-only.|
-|principalName|The principal name of the subject. String||
-|type|String|The type of the subject. The value can be ``User``, ``Group``, ``ServicePrincipal``, ``GroupSecurityNotEnabled``, and ``Role``.|
+| Property	   | Type	| Key | Nullable |  Description|
+|:---------------|:--------|:----------|:--------|:----------|
+|id| String|✓ | No| Identifier. The subject id. Read-only.|
+|displayName|String| | Yes|Subject display name.|
+|email|String| | Yes|The subject's email.|
+|principalName|String| | Yes|The principal name of the subject. |
+|type|String| | Yes|The type of the subject. The value can be ``User``, ``Group``, ``ServicePrincipal``, ``GroupSecurityNotEnabled``, and ``Role``.|
 
 ### Relationships
 None
@@ -29,9 +29,9 @@ Here is a JSON representation of the resource.
 
 ```json
 {
+  "id": "String",  
   "displayName": "String",
   "email": "String",
-  "id": "String (identifier)",
   "principalName": "String",
   "type": "String"
 }
@@ -47,3 +47,17 @@ Here is a JSON representation of the resource.
   "section": "documentation",
   "tocPath": ""
 }-->
+
+### XML representation
+```xml
+      <EntityType Name="subject">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="displayName" Type="Edm.String" />
+        <Property Name="type" Type="Edm.String" />
+        <Property Name="principalName" Type="Edm.String" />
+        <Property Name="email" Type="Edm.String" />
+      </EntityType>
+```

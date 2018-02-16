@@ -1,13 +1,12 @@
 # List roleDefinitions
 
-Retrieve a list of roledefinition objects.
+Retrieve a list of roleDefinition objects.
 ### Prerequisites
 The following **scopes** are required to execute this API: 
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /providers/<id>/roleDefinitions
-GET /providers/<id>/resource('<id>')/roleDefinitions
+GET /scenarios('<id>')/resource('<id>')/roleDefinitions
 ```
 ### Optional query parameters
 This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
@@ -30,7 +29,7 @@ Here is an example of the request to get all role definitions for a particular r
   "name": "get_roledefinitions"
 }-->
 ```http
-GET https://graph.microsoft.com/beta//api/v1/providers('00000000-0000-0000-0000-000000000002')/resources('bc6f10e6-6dd9-4393-853e-09e13c036b17')/roleDefinitions
+GET https://graph.microsoft.com/beta//api/v1/scenarios('pimforrbac')/resources('bc6f10e6-6dd9-4393-853e-09e13c036b17')/roleDefinitions
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

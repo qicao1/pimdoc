@@ -1,12 +1,12 @@
-# Get resource
+# Get roleSetting
 
-Retrieve the properties and relationships of resource object.
+Retrieve the properties and relationships of roleSetting object.
 ### Prerequisites
 The following **scopes** are required to execute this API: 
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /scenarios('<id>')/resources('<id>')
+GET /scenarios('<id>')/roleSettings('<id>')
 ```
 ### Optional query parameters
 This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
@@ -20,45 +20,46 @@ This method supports the [OData Query Parameters](http://graph.microsoft.io/docs
 ### Request body
 Do not supply a request body for this method.
 ### Response
-If successful, this method returns a `200 OK` response code and [resource](../resources/resource.md) object in the response body.
+If successful, this method returns a `200 OK` response code and [roleSetting](../resources/roleSetting.md) object in the response body.
 ### Example
 ##### Request
 Here is an example of the request.
 <!-- {
   "blockType": "request",
-  "name": "get_resource"
+  "name": "get_policy"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/resources('9ef79d21-f590-43c7-80e4-3c6d6699b8db')?$expand=parent
+GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/roleSettings/<id>
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.resource"
+  "@odata.type": "microsoft.graph.policy"
 } -->
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
-Content-length: 970
+Content-length: 370
 
 {
- 	"id":"9ef79d21-f590-43c7-80e4-3c6d6699b8db",
-	"originalId":"/subscriptions/ce06ac4b-5d7b-4324-9196-8a4c6d2f7ffd",
-	"displayName":"AAD Deep Dive",
-	"resourceType":"subscription",
-	"roleDefinitionCount":64,
-	"roleAssignmentCount":15,
-	"parent":{
-    "id":"9ef79d21-f590-43c7-80e4-3c6d6699b8db",
-	"originalId":"/subscriptions/ce06ac4b-5d7b-4324-9196-8a4c6d2f7ffd",
-	"displayName":"AAD Deep Dive",
-	"resourceType":null,
-	"roleDefinitionCount":0,
-	"roleAssignmentCount":0,
-	"parent":null
-  }
+  "id": "id-value",
+  "default": true,
+  "lastUpdated": "datetime-value",
+  "lastUpdatedBy": "lastUpdatedBy-value",
+  "adminEligibleSettings": [
+    {
+      "ruleIdentifier": "ruleIdentifier-value",
+      "setting": "setting-value"
+    }
+  ],
+  "adminMemberSettings": [
+    {
+      "ruleIdentifier": "ruleIdentifier-value",
+      "setting": "setting-value"
+    }
+  ]
 }
 ```
 
@@ -66,7 +67,7 @@ Content-length: 970
 2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
-  "description": "Get resource",
+  "description": "Get policy",
   "keywords": "",
   "section": "documentation",
   "tocPath": ""

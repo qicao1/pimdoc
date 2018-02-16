@@ -6,7 +6,7 @@ The following **scopes** are required to execute this API:
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /providers/<id>/resources('<id>')/roleAssignments
+GET /scenarios('<id>')/resources('<id>')/roleAssignments
 ```
 ### Optional query parameters
 This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
@@ -29,7 +29,7 @@ Here is an example of the request.
   "name": "get_roleassignments"
 }-->
 ```http
-GET  https://graph.microsoft.com/beta/providers('00000000-0000-0000-0000-000000000002')/resources('8575d82b-c7b6-4c69-8eee-1d452985a64e')/roleAssignments?$expand=subject,roleDefinition($expand=resource)&$count=true
+GET  https://graph.microsoft.com/beta/scenarios('pimforrbac')/resources('8575d82b-c7b6-4c69-8eee-1d452985a64e')/roleAssignments?$expand=subject,roleDefinition($expand=resource)&$count=true
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

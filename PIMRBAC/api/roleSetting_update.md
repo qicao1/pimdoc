@@ -1,12 +1,11 @@
-# Update policy
-
-Update the properties of policy object.
+# Update roleSetting
+Update the properties of roleSetting object.
 ### Prerequisites
 The following **scopes** are required to execute this API: 
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-PUT /providers/<id>/policies/<id>
+PUT /scenarios('<id>')/roleSettings('<id>')
 ```
 ### Optional request headers
 | Name       | Description|
@@ -28,7 +27,7 @@ In the request body, supply the values for relevant fields that should be update
 |userMemberSettings|rulesetting||
 
 ### Response
-If successful, this method returns a `200 OK` response code and updated [policy](../resources/policy.md) object in the response body.
+If successful, this method returns a `200 OK` response code and updated [roleSetting](../resources/roleSetting.md) object in the response body.
 ### Example
 ##### Request
 Here is an example of the request.
@@ -37,7 +36,7 @@ Here is an example of the request.
   "name": "update_policy"
 }-->
 ```http
-PATCH https://graph.microsoft.com/beta/providers('00000000-0000-0000-0000-000000000002')/policies/<id>
+PUT https://graph.microsoft.com/beta/scenarios('pimforrbac')/roleSettings('<id>')
 Content-type: application/json
 Content-length: 350
 

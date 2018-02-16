@@ -1,14 +1,15 @@
-# tenant resource type
-The tenant object.
+# `tenant` 
+
+Represents an organization or directory in Azure Active Directory.
 
 ### Properties
-| Property	   | Type	|Description|
-|:---------------|:--------|:----------|
-|additionalInformation|String|The additional information of the tenant.|
-|displayName|String|The display name of the tenant.|
-|id|String| The tenant id. Read-only.|
-|initialDomainName| String|The initial domain name of the tenant.|
-|status|String|The status of the tenant. The value can be ``Unknown``, ``NotRegisteredYet``, ``RegisteredSetupInProgress``, ``RegistrationAndSetupCompleted``, ``RegistrationFailed``, ``RegistrationTimeout``, ``Disabled``, ``UnregisterStarted``, ``UnregisterInProgress``, and ``UnregisterCompleted``.|
+| Property	   | Type	| Key | Nullable |  Description|
+|:---------------|:--------|:----------|:--------|:----------|
+|id|String| ✓ | No|The tenant id. Read-only.|
+|displayName|String| | Yes|The display name of the tenant.|
+|initialDomainName| String || Yes|The initial domain name of the tenant.|
+|additionalInformation|String|| Yes|The additional information of the tenant.|
+|status|String|| Yes|The status of the tenant. The value can be ``Unknown``, ``NotRegisteredYet``, ``RegisteredSetupInProgress``, ``RegistrationAndSetupCompleted``, ``RegistrationFailed``, ``RegistrationTimeout``, ``Disabled``, ``UnregisterStarted``, ``UnregisterInProgress``, and ``UnregisterCompleted``.|
 
 ### Relationships
 None
@@ -28,10 +29,10 @@ Here is a JSON representation of the resource.
 
 ```json
 {
-  "additionalInformation": "String",
+  "id": "String",
   "displayName": "String",
-  "id": "String (identifier)",
   "initialDomainName": "String",
+  "additionalInformation": "String",
   "status": "String"
 }
 
@@ -46,3 +47,18 @@ Here is a JSON representation of the resource.
   "section": "documentation",
   "tocPath": ""
 }-->
+
+### Xml representation
+
+```xml
+      <EntityType Name="tenant">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="displayName" Type="Edm.String" />
+        <Property Name="initialDomainName" Type="Edm.String" />
+        <Property Name="additionalInformation" Type="Edm.String" />
+        <Property Name="status" Type="Edm.String" />
+      </EntityType>
+```

@@ -1,12 +1,12 @@
 # List roleAssignmentRequests
 
-Retrieve a list of roleassignmentrequest objects.
+Retrieve a list of roleaAssignmentRequest objects.
 ### Prerequisites
 The following **scopes** are required to execute this API: 
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /providers/<id>/roleAssignmentRequests
+GET /scenarios('<id>')/roleAssignmentRequests
 ```
 ### Optional query parameters
 This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
@@ -29,7 +29,7 @@ Here is an example of the request to query all the pending role assignment reque
   "name": "get_roleassignmentrequests"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/providers('00000000-0000-0000-0000-000000000002')/roleAssignmentRequests?$expand=subject,roleDefinition($expand=resource)&$filter=(status+eq+%27Accepted%27+or+status+eq+%27PendingEvaluation%27+or+status+eq+%27Granted%27+or+status+eq+%27PendingProvisioning%27)+and+(roleDefinition/resource/id+eq+%27bc6f10e6-6dd9-4393-853e-09e13c036b17%27)
+GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/roleAssignmentRequests?$expand=subject,roleDefinition($expand=resource)&$filter=(status+eq+%27Accepted%27+or+status+eq+%27PendingEvaluation%27+or+status+eq+%27Granted%27+or+status+eq+%27PendingProvisioning%27)+and+(roleDefinition/resource/id+eq+%27bc6f10e6-6dd9-4393-853e-09e13c036b17%27)
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

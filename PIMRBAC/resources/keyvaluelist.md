@@ -1,4 +1,4 @@
-# KeyValueList resource type
+# `KeyValueList` type
 The list of key-value pairs.
 
 

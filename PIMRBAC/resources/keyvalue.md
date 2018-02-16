@@ -1,4 +1,4 @@
-# KeyValue resource type
+# `KeyValue` type
 The key-value mapping object.
 
 

@@ -1,23 +1,24 @@
-# roleAssignment resource type
-Represents a role assignment that is assigned to a principal for a resource.
+# `roleAssignment` 
+Represents the assignment of a role to a user or group.
 
 ### Methods
 
-| Method		   | Return Type	|Description|
-|:---------------|:--------|:----------|
-|[List roleAssignments](../api/roleassignment_list.md) | [roleAssignment](roleassignment.md) |List roleAssignment collection.|
-|[Get roleAssignment](../api/roleassignment_get.md) | [roleAssignment](roleassignment.md) |Read properties and relationships of roleAssignment object.|
+| Method		  |Input parameters | Return Type	|Description|
+|:---------------|:--------|:--------|:----------|
+|[List roleAssignments](../api/roleassignment_list.md) | None | [roleAssignment](roleassignment.md) |List roleAssignment collection.|
+|[Get roleAssignment](../api/roleassignment_get.md) | `id` | [roleAssignment](roleassignment.md) |Read properties and relationships of roleAssignment object.|
+|[Export roleAssignment](../api/roleassignment_export.md) | | HttpResponseMessage |Download a list of role assignments and save as a `.csv` file.|
 
 ### Properties
-| Property	   | Type	|Description|
-|:---------------|:--------|:----------|
-|assignmentType|String|The assignment type. The value can be ``Direct`` - for a direct role assignment, ``Inherited`` - the role assignment is inherited from a parent resource scope, or ``Group`` - the role assignment is from a user group role assignment.|
-|expirationDateTime|DateTimeOffset|For a non-permanent role assignment, this is the time when the role assignment will be expired. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
-|id|String| The id of the role assignment. Read-only.|
-|isPermanent|Boolean|Indicates if the role assignment is permanent.|
-|level|String|The level of the assignment. The value can be ``Eligible`` or ``Member``.|
-|originId|String|The original id of the resource that is used to identify the resource in the provider.|
-|startDateTime|DateTimeOffset|The start time of the role assignment. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
+| Property	   | Type	| Key | Nullable |  Description|
+|:---------------|:--------|:----------|:--------|:----------|
+|id|String| ✓  | No| The id of the role assignment. Read-only.|
+|originId|String|  | Yes|The original id of the resource that is used to identify the resource in the provider.|
+|isPermanent|Boolean|  | Yes|Indicates if the role assignment is permanent.|
+|startDateTime|DateTimeOffset|  | Yes|The start time of the role assignment. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
+|expirationDateTime|DateTimeOffset|  | Yes|For a non-permanent role assignment, this is the time when the role assignment will be expired. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
+|assignmentType|String|  | Yes|The type of the assignment. The value can be ``Eligible`` - if it is a *Just in time*  assignment; or ``Member`` - if it is a *direct* assignment or activated from an eligible one.|
+|membershipType|String| | Yes|Represents the type of membership for the role assignment. The value can be ``Inherited`` - it is inherited from a parent resource scope, ``Group`` - it is not inherited but comes from the membership of a group assignment, or ``User`` - it is not inherited nor from a group assignment.|
 
 ### Relationships
 | Relationship | Type	|Description|
@@ -40,9 +41,9 @@ Here is a JSON representation of the resource.
 
 ```json
 {
+  "id": "String",
   "assignmentType": "String",
   "expirationDateTime": "String (timestamp)",
-  "id": "String (identifier)",
   "isPermanent": true,
   "level": "String",
   "originId": "String",
@@ -60,3 +61,23 @@ Here is a JSON representation of the resource.
   "section": "documentation",
   "tocPath": ""
 }-->
+
+
+ ### XML representation
+```xml
+      <EntityType Name="roleAssignment">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="originId" Type="Edm.String" />
+        <Property Name="isPermanent" Type="Edm.Boolean" />
+        <Property Name="expirationDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="startDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="assignmentLevel" Type="Edm.String" />
+        <Property Name="assignmentType" Type="Edm.String" />
+        <NavigationProperty Name="roleDefinition" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleDefinition" ContainsTarget="true" />
+        <NavigationProperty Name="subject" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.subject" ContainsTarget="true" />
+        <NavigationProperty Name="linkedAssignment" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleAssignment" />
+      </EntityType>
+```
