@@ -11,7 +11,7 @@ Represents the request of role assignment operations. The request can be about:
 |[List roleAssignmentRequests](../api/roleassignmentrequest_list.md) |  |  [roleAssignmentRequest collection](roleassignmentrequest.md) |Get roleAssignmentRequest collection.|
 |[Create](../api/roleassignmentrequest_post.md) |  |  [roleAssignmentRequest](roleassignmentrequest.md)	|Create roleAssignmentRequest object. |
 |[Cancel](../api/roleassignmentrequest_cancel.md)| `id` | [roleAssignmentRequest](roleassignmentrequest.md)|Cancel a pending role assignment request.|
-|[UpdateAdminDecision](../api/roleassignmentrequest_updateAdminDecision.md)| `id` | [roleAssignmentRequest](roleassignmentrequest.md)|Approve or deny a role assignment request for renewing or extending a role assignment.|
+|[UpdateAdminDecision](../api/roleassignmentrequest_updateadmindecision.md)| `id` | [roleAssignmentRequest](roleassignmentrequest.md)|Approve or deny a role assignment request for renewing or extending a role assignment.|
 
 ### Properties
 | Property	   | Type	| Key | Nullable |  Description|

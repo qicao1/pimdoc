@@ -31,10 +31,10 @@ With Privileged Identity Management (PIM) for Azure RBAC roles, you can manage, 
  *  [`scenario`](./resources/scenario.md)
  *  [`resource`](./resources/resource.md)
  *  [`subject`](./resources/subject.md)
- *  [`roleDefinition`](./resources/roleDefinition.md)
+ *  [`roleDefinition`](./resources/roledefinition.md)
  *  [`roleSetting`](./resources/roleSetting.md)
- *  [`roleAssignment`](./resources/roleAssignment.md)
- *  [`roleAssignmentRequest`](./resources/roleAssignmentRequest.md)
+ *  [`roleAssignment`](./resources/roleassignment.md)
+ *  [`roleAssignmentRequest`](./resources/roleassignmentRequest.md)
  <!--
  *  [`alert`](./resources/alert.md)
  *  [`alertSetting`](./resources/alertSetting.md)
