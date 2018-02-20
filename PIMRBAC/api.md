@@ -36,7 +36,7 @@ With Privileged Identity Management (PIM) for Azure RBAC roles, you can manage, 
  *  [`roleDefinition`](./resources/roledefinition.md)
  *  [`roleSetting`](./resources/roleSetting.md)
  *  [`roleAssignment`](./resources/roleassignment.md)
- *  [`roleAssignmentRequest`](./resources/roleassignmentRequest.md)
+ *  [`roleAssignmentRequest`](./resources/roleassignmentrequest.md)
  <!--
  *  [`alert`](./resources/alert.md)
  *  [`alertSetting`](./resources/alertSetting.md)
@@ -63,7 +63,7 @@ With Privileged Identity Management (PIM) for Azure RBAC roles, you can manage, 
 
 * [`permissions`](./api/resource_permissions.md) function on [`resource`](./resources/resource.md) entity;
 * [`export`](./api/roleassignment_export.md) on [`roleAssignment`](./resources/roleAssignment.md) entity;
-* [`cancel`](./api/roleassignmentrequest_cancel.md), and [`updateAdminDecision`](./api/roleassignmentrequest_updateadmindecision) action on [`roleAssignmentRequest`](./resources/roleAssignmentRequest.md) entity;
+* [`cancel`](./api/roleassignmentrequest_cancel.md), and [`updateAdminDecision`](./api/roleassignmentrequest_updateadmindecision) action on [`roleAssignmentRequest`](./resources/roleassignmentrequest.md) entity;
 <!--
 * [`export`](./api/activity_export.md) and [`getExpiredAssignmentAudits`](./api/activity_getexpiredassignmentaudits.md) on [`activity`](./resources/activity.md) entity;  
 *   [`refresh`](./api/alert_refresh.md), [`deactivate`](./api/alert_deactivate.md), [`disable`](./api/alert_disable.md), [`enable`](./api/alert_enable.md), and [`fix`](./api/alert_fix.md) actions on [`alert`](./resources/alert.md) entity;  
