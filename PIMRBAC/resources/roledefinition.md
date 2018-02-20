@@ -8,10 +8,10 @@ For `pimforrbac` scenario, the roleDefinition can represent Azure RBAC roles, su
 
 | Method		  |Input parameters | Return Type	|Description|
 |:---------------|:--------|:--------|:----------|
-|[List roleDefinitions](../api/roledefinition_list.md) | None | [roleDefinition](roledefinition.md) |Get roleDefinition collection.|
 |[Get roleDefinition](../api/roledefinition_get.md) | `id` | [roleDefinition](roledefinition.md) |Read properties and relationships of roleDefinition object.|
 
 <!--
+|[List roleDefinitions](../api/roledefinition_list.md) | None | [roleDefinition](roledefinition.md) |Get roleDefinition collection.|
 |[Create roleDefinition](../api/resource_post_roledefinitions.md) |  |[roleDefinition](roledefinition.md)| Create a new roleDefinition by posting to the roleDefinitions collection.|
 -->
 
@@ -30,7 +30,8 @@ For `pimforrbac` scenario, the roleDefinition can represent Azure RBAC roles, su
 ### Relationships
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
-|resource|[resource](resource.md)|The associated resource for the role definition. Read-only. Nullable.|
+|resource|[resource](resource.md)|The associated resource for the role definition. Read-only.|
+|roleSetting|[roleSetting](rolesetting.md)|The associated role setting for the role definition. Read-only.|
 
 ### JSON representation
 
@@ -81,5 +82,6 @@ Here is a JSON representation of the resource.
         <Property Name="activationRequiredCount" Type="Edm.Int32" />
         <Property Name="assignedCount" Type="Edm.Int32" />
         <NavigationProperty Name="resource" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.resource" ContainsTarget="true" />
+        <NavigationProperty Name="roleSetting" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleSetting" ContainsTarget="true" />
       </EntityType>
 ```
