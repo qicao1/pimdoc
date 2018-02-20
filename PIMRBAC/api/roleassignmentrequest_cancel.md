@@ -9,6 +9,9 @@ The following **scopes** are required to execute this API:
 ```http
 POST /scenarios('<id>')/roleAssignmentRequests('<id>')/cancel
 ```
+
+Only requests that are in status of `Granted`, `PendingApproval` and `PendingAdminDecision` are cancellable.
+
 ### Request headers
 | Name       | Description|
 |:---------------|:----------|

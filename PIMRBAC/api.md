@@ -10,18 +10,20 @@ Eng |Nan Wu (nawu)
 
 ## Scenarios
 With Privileged Identity Management (PIM) for Azure RBAC roles, you can manage, control, and monitor access to Azure resources within your organization.
-* A user can see subscriptions, resource groups and other Azure resources that he has access to; roles, role assignments, assignment requests and role settings for a given resource; 
-* A user can activate his eligible roles to get access to a resource, and deactivate when the access is not needed;
-* A user can request to extend his expiring assignments, or renew his expired ones; cancel his pending role assignment requests;
-<!--
-* A user can see a history of his activities on role assignments and activations.
--->
-* An administrator can assign a role to a user or group; remove a role from a user or group; update role assignments, extend expiring ones, and renew expired ones; 
+* An administrator can assign a user or group to a role, by _"Just in time"_ assignment (activation required) or _"Direct"_ assignment (activation not required); remove a user or group from a role;
+* An administrator can update existing role assignments;
+* An administrator can extend expiring role assignments; 
 * An administrator can manage role settings for roles.
-* An administrator can approve or deny users' requests to renew/extend role assignments; 
+* An administrator can approve or deny users' requests to extend role assignments, and cancel any pending requests of users; 
 <!--
 * An administrator can see the activity history of role assignments and activations of all users for a given resource;
 * An administrator can also get alerts about changes in role assignments for a given resource, and also manage these alerts.
+-->
+* A user can see subscriptions, resource groups and other Azure resources that he has access to; roles, role assignments, assignment requests and role settings for a given resource; 
+* A user can activate his eligible roles to get access to a resource, and deactivate when the access is not needed;
+* A user can request to extend his expiring assignments; cancel his pending role assignment requests;
+<!--
+* A user can see a history of his activities on role assignments and activations.
 -->
 
 ## Schema changes
@@ -60,8 +62,8 @@ With Privileged Identity Management (PIM) for Azure RBAC roles, you can manage, 
 ### New functions and actions
 
 * [`permissions`](./api/resource_permissions.md) function on [`resource`](./resources/resource.md) entity;
-*    [`getMyAssignments`](./api/roleassignment_getMyAssignments.md) and [`export`](./api/roleassignment_export.md) on [`roleAssignment`](./resources/roleAssignment.md) entity;
-*   [`cancel`](./api/roleassignmentrequest_cancel.md), [`adminUpdate`](./api/roleassignmentrequest_adminupdate.md) and [`updateAdminDecision`](./api/roleassignmentrequest_updateadmindecision) action on [`roleAssignmentRequest`](./resources/roleAssignmentRequest.md) entity;
+* [`export`](./api/roleassignment_export.md) on [`roleAssignment`](./resources/roleAssignment.md) entity;
+* [`cancel`](./api/roleassignmentrequest_cancel.md), and [`updateAdminDecision`](./api/roleassignmentrequest_updateadmindecision) action on [`roleAssignmentRequest`](./resources/roleAssignmentRequest.md) entity;
 <!--
 * [`export`](./api/activity_export.md) and [`getExpiredAssignmentAudits`](./api/activity_getexpiredassignmentaudits.md) on [`activity`](./resources/activity.md) entity;  
 *   [`refresh`](./api/alert_refresh.md), [`deactivate`](./api/alert_deactivate.md), [`disable`](./api/alert_disable.md), [`enable`](./api/alert_enable.md), and [`fix`](./api/alert_fix.md) actions on [`alert`](./resources/alert.md) entity;  

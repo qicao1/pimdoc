@@ -49,7 +49,7 @@ Content-length: 279
     "value": [
         {
             "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17_7fd64851-3279-459b-b614-e2b2ba760f5b_7c53453e-d5a4-41e0-8eb1-32d5ec8bfdee",
-            "assignmentLevel": "Eligible",
+            "assignmentType": "Eligible",
             "requestType": "AdminAdd",
             "requestedDateTime": "2017-09-27T23:01:44.127Z",
             "roleAssignmentStartDateTime": "2017-10-05T23:01:15.99Z",

@@ -1,5 +1,5 @@
 # resource: permissions
-
+Returns the caller's current permission levels for the specified resource.
 
 ### Prerequisites
 The following **scopes** are required to execute this API: 
