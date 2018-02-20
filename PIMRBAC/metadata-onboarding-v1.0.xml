@@ -64,6 +64,7 @@
         <Property Name="activationRequiredCount" Type="Edm.Int32" />
         <Property Name="assignedCount" Type="Edm.Int32" />
         <NavigationProperty Name="resource" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.resource" ContainsTarget="true" />
+        <NavigationProperty Name="roleSetting" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleSetting" ContainsTarget="true" />
       </EntityType>
       <EntityType Name="roleAssignment">
         <Key>
