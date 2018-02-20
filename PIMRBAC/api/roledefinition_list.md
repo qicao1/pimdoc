@@ -6,7 +6,7 @@ The following **scopes** are required to execute this API:
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /scenarios('<id>')/resource('<id>')/roleDefinitions
+GET /scenarios('<id>')/roleDefinitions
 ```
 ### Optional query parameters
 This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
@@ -29,7 +29,7 @@ Here is an example of the request to get all role definitions for a particular r
   "name": "get_roledefinitions"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/resources('bc6f10e6-6dd9-4393-853e-09e13c036b17')/roleDefinitions
+GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/roleDefinitions?$count=true&$expand=resource&$orderby=subjectCount%20desc&$filter=resource/id+eq+'e5e7d29d-5465-45ac-885f-4716a5ee74b5'
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -45,41 +45,20 @@ Content-type: application/json
 Content-length: 227
 
 {
-    "@odata.context": "https://api.azrbac.mspim.azure.com/api/v1/$metadata#resources('bc6f10e6-6dd9-4393-853e-09e13c036b17')/roleDefinitions",
-    "value": [
-        {
-            "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17_21d96096-b162-414a-8302-d8354f9d91b2",
-            "templateId": "21d96096-b162-414a-8302-d8354f9d91b2",
-            "displayName": "Azure Service Deploy Release Management Contributor",
-            "subjectCount": 0,
-            "activationRequiredCount": 0,
-            "assignedCount": 0,
-        },
-        {F
-            "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17_9f15f5f5-77bd-413a-aa88-4b9c68b1e7bc",
-            "templateId": "9f15f5f5-77bd-413a-aa88-4b9c68b1e7bc",
-            "displayName": "GenevaWarmPathResourceContributor",
-            "subjectCount": 0,
-            "activationRequiredCount": 0,
-            "assignedCount": 0,
-        },
-        {
-            "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17_a042fe8d-14b3-4850-9120-e2f357577b2d",
-            "templateId": "a042fe8d-14b3-4850-9120-e2f357577b2d",
-            "displayName": "Monitor permissions",
-            "subjectCount": 0,
-            "activationRequiredCount": 0,
-            "assignedCount": 0,
-        },
-        {
-            "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17_7fd64851-3279-459b-b614-e2b2ba760f5b",
-            "templateId": "7fd64851-3279-459b-b614-e2b2ba760f5b",
-            "displayName": "Office DevOps",
-            "subjectCount": 0,
-            "activationRequiredCount": 0,
-            "assignedCount": 0,
-        }
-    ]
+  "@odata.context":"https://canaryapi.azrbac.mspim.azure.com/api/v1/$metadata#roleDefinitions","@odata.count":75,"value":[
+    {
+      "id":"e5e7d29d-5465-45ac-885f-4716a5ee74b5_8e3af657-a8ff-443c-a75c-2fe8c4bcb635","templateId":"8e3af657-a8ff-443c-a75c-2fe8c4bcb635","displayName":"Owner","subjectCount":31,"activationRequiredCount":29,"assignedCount":3
+      "resource@odata.context":"https://canaryapi.azrbac.mspim.azure.com/api/v1/$metadata#roleDefinitions('e5e7d29d-5465-45ac-885f-4716a5ee74b5_8e3af657-a8ff-443c-a75c-2fe8c4bcb635')/resource/$entity","resource":{
+        "id":"e5e7d29d-5465-45ac-885f-4716a5ee74b5","originalId":"/subscriptions/38ab2ccc-3747-4567-b36b-9478f5602f0d","displayName":"Wingtip Toys - Prod","resourceType":"subscription","status":"Active","roleDefinitionCount":0,"roleAssignmentCount":0
+      }
+    },
+    {
+      "id":"e5e7d29d-5465-45ac-885f-4716a5ee74b5_b24988ac-6180-42a0-ab88-20f7382dd24c","templateId":"b24988ac-6180-42a0-ab88-20f7382dd24c","displayName":"Contributor","subjectCount":16,"activationRequiredCount":14,"assignedCount":2
+      "resource@odata.context":"https://canaryapi.azrbac.mspim.azure.com/api/v1/$metadata#roleDefinitions('e5e7d29d-5465-45ac-885f-4716a5ee74b5_b24988ac-6180-42a0-ab88-20f7382dd24c')/resource/$entity","resource":{
+        "id":"e5e7d29d-5465-45ac-885f-4716a5ee74b5","originalId":"/subscriptions/38ab2ccc-3747-4567-b36b-9478f5602f0d","displayName":"Wingtip Toys - Prod","resourceType":"subscription","status":"Active","roleDefinitionCount":0,"roleAssignmentCount":0
+      }
+    }
+  ]
 }
 ```
 
