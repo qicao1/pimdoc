@@ -13,7 +13,8 @@ POST /providers/<id>/resources/<id>roleDefinitions
 | Name       | Description|
 |:---------------|:----------|
 | Authorization  | Bearer {code}|
-| Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|
+
+<!--| Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|-->
 
 ### Request body
 In the request body, supply a JSON representation of [roleDefinition](../resources/roledefinition.md) object.

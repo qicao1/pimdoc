@@ -12,7 +12,8 @@ GET /scenarios('<id>')/resources('<id>')/permissions
 | Name       | Description|
 |:---------------|:----------|
 | Authorization  | Bearer {code}|
-| Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|
+
+<!--| Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|-->
 
 ### Request body
 

@@ -12,7 +12,8 @@ POST /scenarios('<id>')/roleAssignmentRequests
 | Name       | Description|
 |:---------------|:----------|
 | Authorization  | Bearer {code}|
-| Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|
+
+<!--| Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|-->
 
 ### Request body
 In the request body, supply a JSON representation of [roleAssignmentRequest](../resources/roleassignmentrequest.md) object. Please provide `id` for `roleDefinition`, `resource` and `subject` to uniquely identity a role assignment.
@@ -24,6 +25,7 @@ In the request body, supply a JSON representation of [roleAssignmentRequest](../
 |requestType|String|The request type. The value should be `UserAdd` for activation, `UserRemove` for deactivation, `AdminAdd` for assignment, `AdminRemove` for assignment removal, and `AdminUpdate` for role assignment update, `UserExtend` and `AdminExtend` for extending expiring role assignments.|
 |reason|String|The reason needs to be provided for the role assignment request for audit and review purpose.|
 |evaluateOnly|Boolean|Indicates if the API call is for evaluation purpose only.|
+|schedule|[schedule](schedule.md)| The schedule of the role assignment request. For request type of `UserAdd`, `AdminAdd`, `AdminUpdate`, and `AdminExtend`, it is required.|
 
 ### Response
 If successful, this method returns `201, Created` response code and [roleAssignmentRequest](../resources/roleassignmentrequest.md) object in the response body.
