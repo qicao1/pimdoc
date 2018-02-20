@@ -15,7 +15,8 @@ This method can only be applied to requests that are in status of `PendingAdminD
 | Name       | Description|
 |:---------------|:----------|
 | Authorization  | Bearer {code}|
-| Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|
+
+<!--| Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|-->
 
 ### Request body
 In the request body, supply the values for:
@@ -31,6 +32,7 @@ In the request body, supply the values for:
 |reason|String|The reason user provided for the role assignment request, as well as the administrator gives for his decision.|
 |status|String|The status of the role assignment request. The value should be updated as `AdminApproved` or `AdminDenied`.|
 |evaluateOnly|Boolean|Indicates if the API call is for evaluation purpose only.|
+|schedule|[schedule](schedule.md)| The schedule of the role assignment request. For status of `AdminApproved`, it is required.|
 ### Response
 If successful, this method returns `200, OK` response code. It does not return anything in the response body.
 

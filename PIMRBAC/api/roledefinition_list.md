@@ -15,7 +15,8 @@ This method supports the [OData Query Parameters](http://graph.microsoft.io/docs
 | Name      |Description|
 |:----------|:----------|
 | Authorization  | Bearer {code}|
-| Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|
+
+<!--| Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|-->
 
 ### Request body
 Do not supply a request body for this method.

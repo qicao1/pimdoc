@@ -47,8 +47,8 @@ With Privileged Identity Management (PIM) for Azure RBAC roles, you can manage, 
 
 ### New complex types
 * [`schedule`](./resources/schedule.md)
-* [`KeyValue`](./resources/KeyValue.md)
-* [`ruleSetting`](./resources/ruleSetting.md)
+* [`KeyValue`](./resources/keyvalue.md)
+* [`ruleSetting`](./resources/rulesetting.md)
 * [`permission`](./resources/permission.md)
 <!--
 * [`KeyValueList`](./resources/KeyValueList.md)
