@@ -18,7 +18,7 @@ Represents the request of role assignment operations. The request can be about:
 |:---------------|:--------|:----------|:--------|:----------|
 |id|String| ✓  | No|The id of the role assignment request. Read-only.|
 |assignmentType|String|  | Yes|The role assignment type. The value can be ``Eligible`` and ``Member``.|
-|requestType|String|  | Yes|The type of the role assignment request. The value can be ``AdminAdd``, ``UserAdd``, ``AdminUpdate``, ``AdminRemove``, and ``UserRemove``.|
+|requestType|String|  | Yes|The type of the role assignment request. The value can be ``AdminAdd``, ``UserAdd``, ``AdminUpdate``, ``AdminRemove``, ``UserRemove``, ``UserExtend``, and ``AdminExtend``.|
 |requestedDateTime|DateTimeOffset|  | Yes|The request create time. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
 |roleAssignmentStartDateTime|DateTimeOffset|  | Yes|The start time for the role assignment. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
 |roleAssignmentEndDateTime|DateTimeOffset|  | Yes|The end time for the role assignment. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
