@@ -1,10 +1,8 @@
 # List roleAssignments
 
-Retrieve a list of roleassignment objects.
-### Prerequisites
-The following **scopes** are required to execute this API: 
+Retrieve a list of roleassignment objects. 
 ### HTTP request
-<!-- { "blockType": "ignored" } -->
+
 ```http
 GET /scenarios('<id>')/roleAssignments
 ```
@@ -16,124 +14,72 @@ This method supports the [OData Query Parameters](http://graph.microsoft.io/docs
 |:----------|:----------|
 | Authorization  | Bearer {code}|
 
-<!--| Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|-->
-
 ### Request body
 Do not supply a request body for this method.
 ### Response
 If successful, this method returns a `200 OK` response code and collection of [roleAssignment](../resources/roleassignment.md) objects in the response body.
-### Example
+### Example: Get my role assignments on all resources I have access to
 ##### Request
-Here is an example of the request, which queries all role assignments for a given resource and a target user subject.
-<!-- {
-  "blockType": "request",
-  "name": "get_roleassignments"
-}-->
+To get my role assignments, developers need to explicitly provide `subjectId` in query options.
+| Sub scenarios |Query options|
+|:----------|:----------|
+|Get my eligible role assignment that can be activated| $filter=(linkedEligibleAssignmentId+eq+null+and+assignmentType+eq+'Eligible')|
+|Get my active role assignment that can be deactivated| $filter=(linkedEligibleAssignmentId+ne+null+and+assignmentType+eq+'Member')|
+|Get my active role assignments| $filter=(assignmentType+eq+'Member')|
 ```http
-GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/roleAssignments?$expand=linkedAssignment,subject,roleDefinition($expand=resource)&$filter=(roleDefinition/resource/id+eq+('bc6f10e6-6dd9-4393-853e-09e13c036b17')+and+(subject/id+eq+'795ed4a8-e4e5-48f5-b60c-ee9845a7a791') 
+GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/roleAssignments?$expand=subject,roleDefinition($expand=resource)&filter=subject/id+eq+'918e54be-12c4-4f4c-a6d3-2ee0e3661c51'
 ```
 ##### Response
-Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.roleAssignment",
-  "isCollection": true
-} -->
+
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
-Content-length: 2335
+Content-Length: 2062
 
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleAssignments",
-    "value": [
-        {
-            "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17_d3881f73-407a-4167-8283-e981cbba0404_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_f4269ff2-542b-4b3a-b021-294a51760006",
-            "originId": "/subscriptions/b3797212-a671-4ab5-b866-d71fd4159331/providers/contoso.Authorization/roleAssignments/f4269ff2-542b-4b3a-b021-294a51760006",
-            "isPermanent": true,
-            "expirationDateTime": null,
-            "startDateTime": null,
-            "level": "Member",
-            "assignmentType": "Direct",
-            "linkedAssignment": null,
-            "subject@odata.context": "https://api.azrbac.mspim.azure.com/api/v1/$metadata#roleAssignments('bc6f10e6-6dd9-4393-853e-09e13c036b17_d3881f73-407a-4167-8283-e981cbba0404_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_f4269ff2-542b-4b3a-b021-294a51760006')/subject/$entity",
-            "subject": {
-                "id": "795ed4a8-e4e5-48f5-b60c-ee9845a7a790",
-                "displayName": "alpha",
-                "type": "User",
-                "principalName": "alpha@ntdev.contoso.com",
-                "email": "alpha@contoso.com"
-            },
-            "roleDefinition@odata.context": "https://graph.microsoft.com/beta/$metadata#roleAssignments('bc6f10e6-6dd9-4393-853e-09e13c036b17_d3881f73-407a-4167-8283-e981cbba0404_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_f4269ff2-542b-4b3a-b021-294a51760006')/roleDefinition/$entity",
-            "roleDefinition": {
-                "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17_d3881f73-407a-4167-8283-e981cbba0404",
-                "templateId": "d3881f73-407a-4167-8283-e981cbba0404",
-                "displayName": "Automation Operator",
-                "subjectCount": 0,
-                "activationRequiredCount": 0,
-                "assignedCount": 0,
-                "ruleSettings": [],
-                "resource@odata.context": "https://graph.microsoft.com/beta/$metadata#roleAssignments('bc6f10e6-6dd9-4393-853e-09e13c036b17_d3881f73-407a-4167-8283-e981cbba0404_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_f4269ff2-542b-4b3a-b021-294a51760006')/roleDefinition/resource/$entity",
-                "resource": {
-                    "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17",
-                    "originalId": "/subscriptions/b3797212-a671-4ab5-b866-d71fd4159331",
-                    "displayName": "alpha",
-                    "resourceType": "subscription",
-                    "status": "Active",
-                    "roleDefinitionCount": 0,
-                    "roleAssignmentCount": 0
-                }
-            }
-        },
-        {
-            "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17_8e3af657-a8ff-443c-a75c-2fe8c4bcb635_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_00000000-0000-0000-0000-000000000000",
-            "originId": "/subscriptions/b3797212-a671-4ab5-b866-d71fd4159331/providers/contoso.Authorization/classicAdministrators/10030000801B6D49",
-            "isPermanent": true,
-            "expirationDateTime": null,
-            "startDateTime": null,
-            "level": "Member",
-            "assignmentType": "Group",
-            "linkedAssignment": null,
-            "subject@odata.context": "https://graph.microsoft.com/beta/$metadata#roleAssignments('bc6f10e6-6dd9-4393-853e-09e13c036b17_8e3af657-a8ff-443c-a75c-2fe8c4bcb635_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_00000000-0000-0000-0000-000000000000')/subject/$entity",
-            "subject": {
-                "id": "795ed4a8-e4e5-48f5-b60c-ee9845a7a790",
-                "displayName": "alpha",
-                "type": "User",
-                "principalName": "alpha@ntdev.contoso.com",
-                "email": "alpha@contoso.com"
-            },
-            "roleDefinition@odata.context": "https://graph.microsoft.com/beta/$metadata#roleAssignments('bc6f10e6-6dd9-4393-853e-09e13c036b17_8e3af657-a8ff-443c-a75c-2fe8c4bcb635_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_00000000-0000-0000-0000-000000000000')/roleDefinition/$entity",
-            "roleDefinition": {
-                "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17_8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
-                "templateId": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
-                "displayName": "Owner",
-                "subjectCount": 0,
-                "activationRequiredCount": 0,
-                "assignedCount": 0,
-                "ruleSettings": [],
-                "resource@odata.context": "https://graph.microsoft.com/beta/$metadata#roleAssignments('bc6f10e6-6dd9-4393-853e-09e13c036b17_8e3af657-a8ff-443c-a75c-2fe8c4bcb635_795ed4a8-e4e5-48f5-b60c-ee9845a7a790_00000000-0000-0000-0000-000000000000')/roleDefinition/resource/$entity",
-                "resource": {
-                    "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17",
-                    "originalId": "/subscriptions/b3797212-a671-4ab5-b866-d71fd4159331",
-                    "displayName": "alpha",
-                    "resourceType": "subscription",
-                    "status": "Active",
-                    "roleDefinitionCount": 0,
-                    "roleAssignmentCount": 0
-                }
-            }
+  "@odata.context":"https://graph.microsoft.com/beta/$metadata#roleAssignments",
+  "value":[
+    {
+      "id":"e5e7d29d-5465-45ac-885f-4716a5ee74b5_8e3af657-a8ff-443c-a75c-2fe8c4bcb635_918e54be-12c4-4f4c-a6d3-2ee0e3661c51_2d8bb67d-c8e8-4a89-9a60-3ddf6545c970",
+      "resourceId":"e5e7d29d-5465-45ac-885f-4716a5ee74b5",
+      "roleDefinitionId":"8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
+      "subjectId":"918e54be-12c4-4f4c-a6d3-2ee0e3661c51",
+      "linkedEligibleAssignmentId":null,      
+      "originId":null,
+      "isPermanent":false,
+      "endDateTime":"2018-04-02T17:29:00.44Z",
+      "startDateTime":"2017-10-04T17:29:18.08Z",
+      "assignmentType":"Eligible",
+      "memberType":"Direct",
+      "subject@odata.context":"https://graph.microsoft.com/beta/$metadata#roleAssignments('e5e7d29d-5465-45ac-885f-4716a5ee74b5_8e3af657-a8ff-443c-a75c-2fe8c4bcb635_918e54be-12c4-4f4c-a6d3-2ee0e3661c51_2d8bb67d-c8e8-4a89-9a60-3ddf6545c970')/subject/$entity",
+      "subject":{
+        "id":"918e54be-12c4-4f4c-a6d3-2ee0e3661c51",
+        "displayName":"nawu",
+        "type":"User",
+        "principalName":"nawu@fimdev.net",
+        "email":"nawu@microsoft.com"
+      },
+      "roleDefinition@odata.context":"https://graph.microsoft.com/beta/$metadata#roleAssignments('e5e7d29d-5465-45ac-885f-4716a5ee74b5_8e3af657-a8ff-443c-a75c-2fe8c4bcb635_918e54be-12c4-4f4c-a6d3-2ee0e3661c51_2d8bb67d-c8e8-4a89-9a60-3ddf6545c970')/roleDefinition/$entity",
+      "roleDefinition":{
+        "id":"e5e7d29d-5465-45ac-885f-4716a5ee74b5_8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
+        "resourceId":"e5e7d29d-5465-45ac-885f-4716a5ee74b5",
+        "originId": null,
+        "templateId":"8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
+        "displayName":"Owner",
+        "subjectCount":0,
+        "activationRequiredCount":0,
+        "assignedCount":0,"resource@odata.context":"https://graph.microsoft.com/beta/$metadata#roleAssignments('e5e7d29d-5465-45ac-885f-4716a5ee74b5_8e3af657-a8ff-443c-a75c-2fe8c4bcb635_918e54be-12c4-4f4c-a6d3-2ee0e3661c51_2d8bb67d-c8e8-4a89-9a60-3ddf6545c970')/roleDefinition/resource/$entity",
+        "resource":{
+          "id":"e5e7d29d-5465-45ac-885f-4716a5ee74b5",
+          "originId":"/subscriptions/38ab2ccc-3747-4567-b36b-9478f5602f0d",
+          "displayName":"Wingtip Toys - Prod",
+          "type":"subscription",
+          "status":"Active",
+          "roleDefinitionCount":0,
+          "roleAssignmentCount":0
         }
-    ]
+      }
+    }
+  ]
 }
 ```
-
-<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
-2015-10-25 14:57:30 UTC -->
-<!-- {
-  "type": "#page.annotation",
-  "description": "List roleAssignments",
-  "keywords": "",
-  "section": "documentation",
-  "tocPath": ""
-}-->

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:DataServices>
+    <Schema Namespace="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="tenant">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="displayName" Type="Edm.String" />
+        <Property Name="initialDomainName" Type="Edm.String" />
+        <Property Name="additionalInformation" Type="Edm.String" />
+        <Property Name="status" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="scenario">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="displayName" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="resource">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="originalId" Type="Edm.String" />
+        <Property Name="displayName" Type="Edm.String" />
+        <Property Name="resourceType" Type="Edm.String" />
+        <Property Name="status" Type="Edm.String" />
+        <Property Name="roleDefinitionCount" Type="Edm.Int32" />
+        <Property Name="roleAssignmentCount" Type="Edm.Int32" />
+        <NavigationProperty Name="roleDefinitions" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleDefinition)" ContainsTarget="true" />
+        <NavigationProperty Name="roleAssignments" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleAssignment)" ContainsTarget="true" />
+        <NavigationProperty Name="alerts" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.alert)" ContainsTarget="true" />
+        <NavigationProperty Name="parent" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.resource)" ContainsTarget="true" />
+      </EntityType>
+      <EntityType Name="subject">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="displayName" Type="Edm.String" />
+        <Property Name="type" Type="Edm.String" />
+        <Property Name="principalName" Type="Edm.String" />
+        <Property Name="email" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="alert">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="resourceId" Type="Edm.String" />
+        <Property Name="alertDefinitionid" Type="Edm.String" Nullable="false" /> 
+        <Property Name="numberOfAffectedItems" Type="Edm.Int32" />
+        <Property Name="additionalData" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.KeyValueList)" /> ?
+        <Property Name="lastModifiedDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="lastScannedDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="isActive" Type="Edm.Boolean" /> ?
+        <Property Name="status" Type="Edm.String" />    ?
+        <NavigationProperty Name="alertDefinition" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.alertDefinition" ContainsTarget="true" />
+        <NavigationProperty Name="alertSetting" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.alertSetting" ContainsTarget="true" />
+      </EntityType>
+      <EntityType Name="alertSetting">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="resourceId" Type="Edm.String" />
+        <Property Name="alertDefinitionid" Type="Edm.String" Nullable="false" />
+        <Property Name="isDisabled" Type="Edm.Boolean" />
+        <Property Name="settings" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.KeyValue)" />
+      </EntityType>
+      <EntityType Name="alertDefinition">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="alertName" Type="Edm.String" />
+        <Property Name="alertDescription" Type="Edm.String" />
+        <Property Name="severityLevel" Type="Edm.String" />
+        <Property Name="alertType" Type="Edm.String" />
+        <Property Name="securityImpact" Type="Edm.String" />
+        <Property Name="mitigationSteps" Type="Edm.String" />
+        <Property Name="howToPrevent" Type="Edm.String" />
+        <Property Name="isResolvable" Type="Edm.Boolean" />
+        <Property Name="isConfigurable" Type="Edm.Boolean" />
+        </EntityType>
+      <EntityType Name="roleAssignmentRequest">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="assignmentType" Type="Edm.String" />
+        <Property Name="requestType" Type="Edm.String" />
+        <Property Name="requestedDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="roleAssignmentStartDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="roleAssignmentEndDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="reason" Type="Edm.String" />
+        <Property Name="status" Type="Edm.String" />
+        <Property Name="statusDetail" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.KeyValue)" />
+        <Property Name="schedule" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.schedule" />
+        <Property Name="targetLinkedRoleAssignmentId" Type="Edm.String" />
+        <Property Name="evaluateOnly" Type="Edm.Boolean" />
+        <NavigationProperty Name="roleDefinition" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleDefinition" ContainsTarget="true" />
+        <NavigationProperty Name="subject" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.subject" ContainsTarget="true" />
+      </EntityType>
+      <EntityType Name="roleDefinition">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="templateId" Type="Edm.String" />
+        <Property Name="displayName" Type="Edm.String" />
+        <Property Name="subjectCount" Type="Edm.Int32" />
+        <Property Name="activationRequiredCount" Type="Edm.Int32" />
+        <Property Name="assignedCount" Type="Edm.Int32" />
+        <NavigationProperty Name="resource" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.resource" ContainsTarget="true" />
+      </EntityType>
+      <EntityType Name="roleAssignment">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="originId" Type="Edm.String" />
+        <Property Name="isPermanent" Type="Edm.Boolean" />
+        <Property Name="expirationDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="startDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="assignmentLevel" Type="Edm.String" />
+        <Property Name="assignmentType" Type="Edm.String" />
+        <NavigationProperty Name="roleDefinition" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleDefinition" ContainsTarget="true" />
+        <NavigationProperty Name="subject" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.subject" ContainsTarget="true" />
+        <NavigationProperty Name="linkedAssignment" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleAssignment" />
+      </EntityType>
+      <EntityType Name="roleSetting">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="default" Type="Edm.Boolean" />
+        <Property Name="lastUpdated" Type="Edm.DateTimeOffset" />
+        <Property Name="lastUpdatedBy" Type="Edm.String" />
+        <Property Name="adminEligibleSettings" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.ruleSetting)" />
+        <Property Name="adminMemberSettings" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.ruleSetting)" />
+        <Property Name="userEligibleSettings" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.ruleSetting)" />
+        <Property Name="userMemberSettings" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.ruleSetting)" />
+        <NavigationProperty Name="roleDefinitions" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleDefinition)" ContainsTarget="true" />
+        <NavigationProperty Name="resource" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.resource" ContainsTarget="true" />
+      </EntityType>
+      <EntityType Name="activity">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="correlationId" Type="Edm.String" />
+        <Property Name="createdDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="expirationDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="operationType" Type="Edm.String" />
+        <Property Name="reason" Type="Edm.String" />
+        <Property Name="status" Type="Edm.String" />
+        <NavigationProperty Name="requestor" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.subject" ContainsTarget="true" />
+        <NavigationProperty Name="originalRequestor" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.subject" ContainsTarget="true" />
+        <NavigationProperty Name="target" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.target" ContainsTarget="true" />
+        <NavigationProperty Name="subject" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.subject" ContainsTarget="true" />
+        <NavigationProperty Name="resource" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.resource" ContainsTarget="true" />
+      </EntityType>
+      <ComplexType Name="schedule">
+        <Property Name="duration" Type="Edm.Duration" />
+        <Property Name="type" Type="Edm.String" />
+        <Property Name="details" Type="Edm.String" />
+        <Property Name="startDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="isPermanent" Type="Edm.Boolean" />
+        <Property Name="stopDateTime" Type="Edm.DateTimeOffset" />
+      </ComplexType>
+      <ComplexType Name="recurrence">
+        <Property Name="timeZone" Type="Edm.String"/>
+        <Property Name="recurrenceType" Type="microsoft.azure.privilegedIdentities.recurrenceType"/>
+        <Property Name="recurrenceItems" Type="Collection(microsoft.azure.privilegedIdentities.recurrenceItem)"/>
+        <Property Name="recurrenceExclusions" Type="Collection(microsoft.azure.privilegedIdentities.recurrenceExclusion)"/>
+      </ComplexType>
+      <ComplexType Name="recurrenceItem">
+        <Property Name="hour" Type="Edm.Int32"/>
+        <Property Name="minute" Type="Edm.Int32"/>
+        <Property Name="second" Type="Edm.Int32"/>
+        <Property Name="dayOfWeek" Type="Edm.Int32"/>
+        <Property Name="day" Type="Edm.Int32"/>
+        <Property Name="month" Type="Edm.Int32"/>
+      </ComplexType>
+      <ComplexType Name="recurrenceExclusion">
+        <Property Name="originalDateTime" Type="Edm.DateTimeOffset"/>
+        <Property Name="updatedDateTime" Type="Edm.DateTimeOffset"/>
+      </ComplexType>
+      <EnumType Name="recurrenceType">
+        <Member Name="recurrenceByDay" Value="0"/>
+        <Member Name="recurrenceByWeek" Value="1"/>
+        <Member Name="recurrenceByMonth" Value="2"/>
+        <Member Name="recurrenceByYear" Value="3"/>
+      </EnumType>
+      <ComplexType Name="KeyValue">
+        <Property Name="key" Type="Edm.String" />
+        <Property Name="value" Type="Edm.String" />
+      </ComplexType>
+      <ComplexType Name="KeyValueList">
+        <Property Name="item" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.KeyValue)" />
+      </ComplexType>
+      <ComplexType Name="ruleSetting">
+        <Property Name="ruleIdentifier" Type="Edm.String" />
+        <Property Name="setting" Type="Edm.String" />
+      </ComplexType>
+      <EntityType Name="target">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="displayName" Type="Edm.String" />
+        <Property Name="uniqueName" Type="Edm.String" />
+        <Property Name="objectType" Type="Edm.String" />
+        <Property Name="internalType" Type="Edm.String" />
+      </EntityType>
+      <ComplexType Name="permission">
+        <Property Name="accessLevel" Type="Edm.String" />
+        <Property Name="isActive" Type="Edm.Boolean" />
+        <Property Name="isEligible" Type="Edm.Boolean" />
+      </ComplexType>
+      <Function Name="permissions" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.resource" />
+        <ReturnType Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.permission)" />
+      </Function>
+      <Action Name="cancel" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleAssignmentRequest" />
+      </Action>
+      <Action Name="refresh" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.alert" />
+        <Parameter Name="resourceId" Type="Edm.String" Unicode="false" />
+        <Parameter Name="alertId" Type="Edm.String" Unicode="false" />
+      </Action>
+      <Action Name="deactivate" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.alert" />
+        <Parameter Name="resourceId" Type="Edm.String" Unicode="false" />
+        <Parameter Name="alertId" Type="Edm.String" Unicode="false" />
+      </Action>
+      <Action Name="disable" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.alert" />
+        <Parameter Name="resourceId" Type="Edm.String" Unicode="false" />
+        <Parameter Name="alertId" Type="Edm.String" Unicode="false" />
+      </Action>
+      <Action Name="enable" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.alert" />
+        <Parameter Name="resourceId" Type="Edm.String" Unicode="false" />
+        <Parameter Name="alertId" Type="Edm.String" Unicode="false" />
+      </Action>
+      <Action Name="fix" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.alert)" />
+        <Parameter Name="resourceId" Type="Edm.String" Unicode="false" />
+        <Parameter Name="alert" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.alert" />
+      </Action>
+      <Function Name="getMyAssignments" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleAssignment)" />
+        <ReturnType Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleAssignment)" />
+      </Function>
+      <Function Name="export" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.activity)" />
+        <ReturnType Type="Collection(Edm.String)" Unicode="false" />
+      </Function>
+      <Function Name="export" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleAssignment)" />
+        <ReturnType Type="Collection(Edm.String)" Unicode="false" />
+      </Function>
+      <Action Name="adminUpdate" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleAssignmentRequest" />
+        <Parameter Name="status" Type="Edm.String" Unicode="false" />
+        <Parameter Name="schedule" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.schedule" />
+        <Parameter Name="reason" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleAssignmentRequest" />
+      </Action>
+      <Function Name="getExpiredAssignmentAudits" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.activity)" />
+        <Parameter Name="roleAssignmentLevel" Type="Edm.String" Unicode="false" />
+        <Parameter Name="resourceId" Type="Edm.String" Unicode="false" />
+        <Parameter Name="subjectId" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.activity)" />
+      </Function>
+      <EntityContainer Name="Container">
+        <EntitySet Name="registrations" EntityType="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.tenant" />
+        <EntitySet Name="scenarios" EntityType="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.scenario" />
+        <EntitySet Name="resources" EntityType="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.resource" />
+        <EntitySet Name="subjects" EntityType="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.subject" />
+        <EntitySet Name="alerts" EntityType="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.alert" />
+        <EntitySet Name="roleDefinitions" EntityType="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleDefinition" />
+        <EntitySet Name="roleAssignmentRequests" EntityType="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleAssignmentRequest" />
+        <EntitySet Name="roleAssignments" EntityType="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleAssignment">
+          <NavigationPropertyBinding Path="linkedAssignment" Target="roleAssignments" />
+        </EntitySet>
+        <EntitySet Name="roleSettings" EntityType="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleSetting" />
+        <EntitySet Name="activities" EntityType="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.activity" />
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

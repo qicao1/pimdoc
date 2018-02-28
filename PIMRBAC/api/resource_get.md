@@ -1,10 +1,8 @@
 # Get resource
 
-Retrieve the properties and relationships of resource object.
-### Prerequisites
-The following **scopes** are required to execute this API: 
+Retrieve the properties and relationships of a resource object.
+
 ### HTTP request
-<!-- { "blockType": "ignored" } -->
 ```http
 GET /scenarios('<id>')/resources('<id>')
 ```
@@ -16,59 +14,33 @@ This method supports the [OData Query Parameters](http://graph.microsoft.io/docs
 |:----------|:----------|
 | Authorization  | Bearer {code}|
 
-<!--| Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|-->
-
 ### Request body
 Do not supply a request body for this method.
 ### Response
 If successful, this method returns a `200 OK` response code and [resource](../resources/resource.md) object in the response body.
+
 ### Example
+#### Get details of subscription "Wingtip Toys - Prod"
 ##### Request
-Here is an example of the request.
-<!-- {
-  "blockType": "request",
-  "name": "get_resource"
-}-->
 ```http
-GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/resources('9ef79d21-f590-43c7-80e4-3c6d6699b8db')?$expand=parent
+GET https://graph.microsoft.com/beta/scenarios('pimforrbac')/resources('e5e7d29d-5465-45ac-885f-4716a5ee74b5')
 ```
 ##### Response
-Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.resource"
-} -->
+
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
-Content-length: 970
+Content-Length: 459
 
 {
- 	"id":"9ef79d21-f590-43c7-80e4-3c6d6699b8db",
-	"originalId":"/subscriptions/ce06ac4b-5d7b-4324-9196-8a4c6d2f7ffd",
-	"displayName":"AAD Deep Dive",
-	"resourceType":"subscription",
-	"roleDefinitionCount":64,
-	"roleAssignmentCount":15,
-	"parent":{
-    "id":"9ef79d21-f590-43c7-80e4-3c6d6699b8db",
-	"originalId":"/subscriptions/ce06ac4b-5d7b-4324-9196-8a4c6d2f7ffd",
-	"displayName":"AAD Deep Dive",
-	"resourceType":null,
-	"roleDefinitionCount":0,
-	"roleAssignmentCount":0,
-	"parent":null
-  }
+  	"@odata.context":"https://graph.microsoft.com/beta/$metadata#resources/$entity",
+	"@odata.id":"https://graph.microsoft.com/beta/resources('e5e7d29d-5465-45ac-885f-4716a5ee74b5')",
+	"id":"e5e7d29d-5465-45ac-885f-4716a5ee74b5",
+	"originId":"/subscriptions/38ab2ccc-3747-4567-b36b-9478f5602f0d",
+	"displayName":"Wingtip Toys - Prod",
+	"type":"subscription",
+	"status":"Active",
+	"roleDefinitionCount":75,
+	"roleAssignmentCount":14
 }
 ```
-
-<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
-2015-10-25 14:57:30 UTC -->
-<!-- {
-  "type": "#page.annotation",
-  "description": "Get resource",
-  "keywords": "",
-  "section": "documentation",
-  "tocPath": ""
-}-->

@@ -1,9 +1,8 @@
 # Update roleSetting
 Update the properties of roleSetting object.
-### Prerequisites
-The following **scopes** are required to execute this API: 
+
 ### HTTP request
-<!-- { "blockType": "ignored" } -->
+
 ```http
 PUT /scenarios('<id>')/roleSettings('<id>')
 ```
@@ -12,13 +11,13 @@ PUT /scenarios('<id>')/roleSettings('<id>')
 |:-----------|:-----------|
 | Authorization  | Bearer {code}|
 
-<!--| Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|-->
 
 ### Request body
 In the request body, supply the values for relevant fields that should be updated. Existing properties that are not included in the request body will maintain their previous values or be recalculated based on changes to other property values. 
 
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
+|id|String|The id of the role setting.|
 |adminEligibleSettings|[ruleSetting](../resources/ruleSetting.md)|The rule settings that are evaluated when an administrator tries to add an eligible role assignment.|
 |adminMemberSettings|[ruleSetting](../resources/ruleSetting.md)|The rule settings that are evaluated when an administrator tries to add a direct member role assignment.|
 |default|Boolean|Indicate if the roleSetting is a default roleSetting.|
@@ -29,15 +28,11 @@ In the request body, supply the values for relevant fields that should be update
 
 ### Response
 If successful, this method returns a `204 No Cotent` response code.
-### Example
+### Example : Update role setting for "Custom Role 3" in subscription "Wingtip Toys - Prod"
 ##### Request
-Here is an example of the request.
-<!-- {
-  "blockType": "request",
-  "name": "update_policy"
-}-->
+
 ```http
-PUT https://graph.microsoft.com/beta/scenarios('pimforrbac')/roleSettings('<id>')
+PUT https://graph.microsoft.com/beta/scenarios('pimforrbac')/roleSettings('e5e7d29d-5465-45ac-885f-4716a5ee74b5_625c9904-2028-474e-946f-4d7f5b04d24c_5fb5aef8-1081-4b8e-bb16-9d5d0385bab5')
 Content-type: application/json
 Content-length: 350
 
