@@ -39,7 +39,7 @@ Content-length: 463
             "id": "bc6f10e6-6dd9-4393-853e-09e13c036b17_2199084d-1c5c-45ab-bf9c-cddcd6cab633_21d96096-b162-414a-8302-d8354f9d91b2",
             "resourceId": "bc6f10e6-6dd9-4393-853e-09e13c036b17",
             "roleDefinitionId": "2199084d-1c5c-45ab-bf9c-cddcd6cab633",           
-            "default": true,
+            "isDefault": true,
             "lastUpdated": null,
             "lastUpdatedBy": null,
             "adminEligibleSettings": [

@@ -36,7 +36,7 @@ Content-length: 370
   "id":"e5e7d29d-5465-45ac-885f-4716a5ee74b5_625c9904-2028-474e-946f-4d7f5b04d24c_5fb5aef8-1081-4b8e-bb16-9d5d0385bab5",
   "resourceId": "e5e7d29d-5465-45ac-885f-4716a5ee74b5",
   "roleDefinitionId": "625c9904-2028-474e-946f-4d7f5b04d24c",           
-  "default":false,
+  "isDefault":false,
   "lastUpdated":"2018-02-13T20:07:59.687Z",
   "lastUpdatedBy":"vijag",
   "adminEligibleSettings":[

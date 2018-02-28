@@ -7,7 +7,7 @@ Cancel a pending role assignment request.
 POST /scenarios('<id>')/roleAssignmentRequests('<id>')/cancel
 ```
 
-Only requests that are in status of `Granted`, `PendingApproval` and `PendingAdminDecision` are cancellable.
+_Note: Only requests that are in status of `Granted`, `PendingApproval` and `PendingAdminDecision` are cancellable._
 
 ### Request headers
 | Name       | Description|

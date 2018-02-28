@@ -79,13 +79,13 @@
         <Property Name="resourceId" Type="Edm.String" Nullable="false" />
         <Property Name="roleDefinitionId" Type="Edm.String" Nullable="false" />
         <Property Name="subjectId" Type="Edm.String" Nullable="false" />
-        <Property Name="linkedEligibleAssignmentId" Type="Edm.String" Nullable="false" />
+        <Property Name="linkedEligibleAssignmentId" Type="Edm.String"/>
         <Property Name="originId" Type="Edm.String" />
+        <Property Name="memberType" Type="Edm.String" />
+        <Property Name="assignmentType" Type="Edm.String" />
         <Property Name="isPermanent" Type="Edm.Boolean" />
         <Property Name="startDateTime" Type="Edm.DateTimeOffset" />
         <Property Name="endDateTime" Type="Edm.DateTimeOffset" />
-        <Property Name="memberType" Type="Edm.String" />
-        <Property Name="assignmentType" Type="Edm.String" />
         <NavigationProperty Name="roleDefinition" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleDefinition" ContainsTarget="true" />
         <NavigationProperty Name="subject" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.subject" ContainsTarget="true" />
         <NavigationProperty Name="linkedEligibleAssignment" Type="Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.roleAssignment" />
@@ -97,7 +97,7 @@
         <Property Name="id" Type="Edm.String" Nullable="false" />
         <Property Name="resourceId" Type="Edm.String" Nullable="false" />
         <Property Name="roleDefinitionId" Type="Edm.String" Nullable="false" />
-        <Property Name="default" Type="Edm.Boolean" />
+        <Property Name="isDefault" Type="Edm.Boolean" />
         <Property Name="lastUpdated" Type="Edm.DateTimeOffset" />
         <Property Name="lastUpdatedBy" Type="Edm.String" />
         <Property Name="adminEligibleSettings" Type="Collection(Microsoft.Identity.Governance.Common.Data.ExternalModels.V1.ruleSetting)" />

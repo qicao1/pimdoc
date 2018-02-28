@@ -17,7 +17,7 @@ Represents a set of rules that will be checked when an administrator tries to ad
 |id|String| The id of the roleSetting.|
 |resourceId|String| The id of the resource that the role setting is associated with.|
 |roleDefinitionId|String| The id of the role definition that the role setting is associated with.|
-|default|Boolean| Indicate if the roleSetting is a default roleSetting|
+|isDefault|Boolean| Indicate if the roleSetting is a default roleSetting|
 |lastUpdated|DateTimeOffset|The time when the role setting was last updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
 |lastUpdatedBy|String| The display name of the administrator who last updated the roleSetting.|
 |adminEligibleSettings|[ruleSetting](ruleSetting.md) collection|The rule settings that are evaluated when an administrator tries to add an eligible role assignment.|
@@ -40,7 +40,7 @@ Here is a JSON representation of the resource.
   "id": "String (identifier)",
   "resourceId": "String",
   "roleDefinitionId": "String",
-  "default": true,
+  "isDefault": true,
   "lastUpdated": "String (timestamp)",
   "lastUpdatedBy": "String",
   "adminEligibleSettings": [{"@odata.type": "microsoft.graph.rulesetting"}],

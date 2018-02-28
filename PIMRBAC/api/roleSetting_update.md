@@ -20,7 +20,7 @@ In the request body, supply the values for relevant fields that should be update
 |id|String|The id of the role setting.|
 |adminEligibleSettings|[ruleSetting](../resources/ruleSetting.md)|The rule settings that are evaluated when an administrator tries to add an eligible role assignment.|
 |adminMemberSettings|[ruleSetting](../resources/ruleSetting.md)|The rule settings that are evaluated when an administrator tries to add a direct member role assignment.|
-|default|Boolean|Indicate if the roleSetting is a default roleSetting.|
+|isDefault|Boolean|Indicate if the roleSetting is a default roleSetting.|
 |lastUpdated|DateTimeOffset|The time when the roleSetting was last updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.|
 |lastUpdatedBy|String|The display name of the administrator who updated the roleSetting.|
 |userEligibleSettings|[ruleSetting](../resources/ruleSetting.md)|The rule settings that are evaluated when a user tries to add an eligible role assignment. This is not used for `pimforrbac` scenario.|

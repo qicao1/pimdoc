@@ -5,10 +5,10 @@ Administrators approve or deny a request for extending expiring roles.
 ### HTTP request
 
 ```http
-PUT /scenarios('<id>')/roleAssignmentRequests('<id>')/updateAdminDecision
+POST /scenarios('<id>')/roleAssignmentRequests('<id>')/updateAdminDecision
 ```
 
-This method can only be applied to requests that are in status of `PendingAdminDecision`.
+_Note: This method can only be applied to requests that are in status of `PendingAdminDecision`._
 ### Request headers
 | Name       | Description|
 |:---------------|:----------|

@@ -39,9 +39,9 @@ However, Privileged Identity Management for Azure RBAC roles (RBAC PIM) is a new
 ### New entity types
  *  [`scenario`](./resources/scenario.md)
  *  [`resource`](./resources/resource.md)
- *  [`subject`](./resources/subject.md)
  *  [`roleDefinition`](./resources/roledefinition.md)
  *  [`roleSetting`](./resources/rolesetting.md)
+ *  [`subject`](./resources/subject.md)
  *  [`roleAssignment`](./resources/roleassignment.md)
  *  [`roleAssignmentRequest`](./resources/roleassignmentrequest.md)
 
